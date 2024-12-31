@@ -67,14 +67,14 @@ header {
     /* display: none; */
     text-decoration: none;
     margin-left: 5px;
-    font-size: 20px;
+    font-size: 15px;
     transition: font-size 0.3s ease-in-out, font-weight 0.3s ease-in-out;
 
 }
 .headercontainer .nav .navitem:hover a {
     display: inline;
     font-weight: 700;
-    font-size: 25px;
+    font-size: 20px;
 
 }
 .headercontainer .nav .navitem:hover i {
@@ -95,7 +95,7 @@ header {
     color: white;
     font-weight: 600;
     border-radius: 10px;
-    font-size: 20px;
+    font-size: 15px;
     transition: background 0.3s ease, font-size 0.3s ease;
 }
 
@@ -109,7 +109,7 @@ header {
     color: white;
     font-weight: 600;
     border-radius: 10px;
-    font-size: 25px;
+    font-size: 20px;
     transform: scale(1.05);
 }
 .navbutton.mobile a {
@@ -159,7 +159,30 @@ header {
         display: block;
     }
 }
+.margin10 {
+    color: black;
+    margin: 10px ;
+}
+.margin20 {
+    color: black;
+    margin: 20px;
+}
 
+.introimage img{
+    width: 300px;
+    height: 300px;
+
+}
+.block{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 20px;
+    border: 2px solid white;
+}
+.introtext p {
+    line-height: 30px !important;
+}
 /* Main */
 
 /* Hall Of Fame */
