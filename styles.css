@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "LeagueSpartan", sans-serif;
+    color: white;
+}
+
+
+
+@font-face {
+    font-family: "LeagueSpartan";
+    src: url("LeagueSpartan-Bold.otf") format("opentype"),
+    url("LeagueSpartan-Bold.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+    background: black;
+    font-family: "LeagueSpartan", sans-serif;
+}
+
+.flexbox {
+    display: flex;
+}
+
+/* Header */
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+.headercontainer {
+    margin: 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.headercontainer .title {
+    align-items: center;
+    gap: 10px;
+}
+.headercontainer .title h1.mobile {
+    display: none;
+}
+.headercontainer .title .logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50px;
+    background: white;
+    object-fit: cover;
+}
+.headercontainer .nav {
+    align-items: center;
+    gap: 15px;
+    padding: 10px 0px;
+}
+.headercontainer .nav .navitem {
+    padding: 5px;
+}
+.headercontainer .nav .navitem i {
+    font-size: 20px;
+    transition: font-size 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+
+}
+.headercontainer .nav .navitem a {
+    /* display: none; */
+    text-decoration: none;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: font-size 0.3s ease-in-out, font-weight 0.3s ease-in-out;
+
+}
+.headercontainer .nav .navitem:hover a {
+    display: inline;
+    font-weight: 700;
+    font-size: 25px;
+
+}
+.headercontainer .nav .navitem:hover i {
+    display: inline;
+    font-weight: 700;
+    font-size: 25px;
+}
+.headercontainer .navbutton a {
+    display: block;
+    text-decoration: none;
+    padding: 15px 15px;
+    background: linear-gradient(
+            63deg,
+            rgba(19, 83, 158, 1) 0%,
+            rgba(140, 55, 212, 1) 38%,
+            rgba(207, 99, 43, 1) 100%
+    );
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 20px;
+    transition: background 0.3s ease, font-size 0.3s ease;
+}
+
+.headercontainer .navbutton a:hover {
+    background: linear-gradient(
+            -63deg,
+            rgba(19, 83, 158, 1) 0%,
+            rgba(140, 55, 212, 1) 38%,
+            rgba(207, 99, 43, 1) 100%
+    );
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+    font-size: 25px;
+    transform: scale(1.05);
+}
+.navbutton.mobile a {
+    display: none;
+    margin: 5%;
+    width: 90%;
+    text-decoration: none;
+    padding: 15px;
+    background: linear-gradient(
+            63deg,
+            rgba(19, 83, 158, 1) 0%,
+            rgba(140, 55, 212, 1) 38%,
+            rgba(207, 99, 43, 1) 100%
+    );
+    color: white;
+    font-weight: 600;
+    border-radius: 10px;
+}
+@media (max-width: 768px) {
+    body {
+        background: black;
+        border: 4px solid;
+        border-image: linear-gradient(
+                63deg,
+                rgba(19, 83, 158, 1) 0%,
+                rgba(140, 55, 212, 1) 38%,
+                rgba(207, 99, 43, 1) 100%
+        )
+        1;
+    }
+    .headercontainer .title h1.mobile {
+        display: block;
+    }
+    .headercontainer .title h1.non {
+        display: none;
+    }
+    .headercontainer .title .logo {
+        display: none;
+    }
+    .headercontainer .nav .navitem a {
+        display: none;
+    }
+    .headercontainer .navbutton a {
+        display: none;
+    }
+    .navbutton.mobile a {
+        display: block;
+    }
+}
+
+/* Main */
+
+/* Hall Of Fame */
