@@ -43,6 +43,9 @@ header {
 .headercontainer .title h1.mobile {
     display: none;
 }
+.mobile{
+    display: none;
+}
 .headercontainer .title .logo img {
     width: 60px;
     height: 60px;
@@ -112,6 +115,7 @@ header {
     font-size: 20px;
     transform: scale(1.05);
 }
+
 .navbutton.mobile a {
     display: none;
     margin: 5%;
@@ -140,6 +144,29 @@ header {
         )
         1;
     }
+    .mobileIntro{
+        margin: 20px;
+        display: flex !important;
+        justify-content: center; /* Horizontally centers the img */
+        align-items: center;
+    }
+    .mobileIntro img{
+        width: 300px;
+        height: 300px;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+    }
+    .mobile{
+        display: block !important;
+    }
+    .mobileHide{
+        display: none;
+    }
+
+
     .headercontainer .title h1.mobile {
         display: block;
     }
@@ -160,29 +187,81 @@ header {
     }
 }
 .margin10 {
-    color: black;
     margin: 10px ;
 }
 .margin20 {
-    color: black;
     margin: 20px;
+    padding: 20px;
 }
-
+.mobileIntro{
+    display: none;
+}
 .introimage img{
     width: 300px;
     height: 300px;
-
+    border-radius: 20px;
 }
+.mobile{
+    display: none;
+}
+
+
 .block{
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin: 10px;
     border-radius: 20px;
     border: 2px solid white;
+    justify-content: center;
+    align-content: center;
 }
 .introtext p {
     line-height: 30px !important;
 }
+.scrollDown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
 /* Main */
+body, html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+}
 
+.scroll-container {
+    height: 300vh; /* Height for scrolling */
+}
+
+.scroll-section {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.scroll-section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+#section1 {
+    background: #3498db;
+    color: white;
+}
+
+#section2 {
+    background: #e74c3c;
+    color: white;
+}
+
+#section3 {
+    background: #2ecc71;
+    color: white;
+}
 /* Hall Of Fame */

@@ -53,7 +53,11 @@
 </header>
 <body>
 <div class="block">
+    <div class="mobileIntro">
+        <img src="src/IMG_6193.jpg" alt="src/IMG_6193.jpg" />
+    </div>
     <div class="intro flexbox">
+
         <div class="introtext margin20">
             <h1>Developer | Tech Enthusiast</h1>
             <br>
@@ -61,20 +65,61 @@
             <br>
             <br>
             <p>
-                I am a student at the School of Science and Technology, Singapore. I mainly focus on software development, hardware development
-                and robotics. I am also a member of the school's robotics club and have participated in various competitions. I like to explore new technologies and try them.
-                I have developed several things that can be useful to people's live, such as a group announcement app where people can send announcements to the group easily.
-                I also developed an app that remind people to take their medicine when they need to.
+                I am a student at the School of Science and Technology, Singapore, with a strong passion for software development, hardware engineering, and robotics. As a member of my school’s robotics club, I have had the opportunity to participate in various competitions, improving my technical skills and problem-solving abilities.
+
+                Beyond my academic and extracurricular commitments, I enjoy exploring emerging technologies and applying them to create practical solutions. For instance, I developed a group announcement app that streamlines communication, allowing users to easily share updates with their communities. Additionally, I created a medicine reminder app designed to assist individuals in managing their medication schedules effectively.
+
+                My goal is to leverage technology to develop innovative tools that enhance people’s lives and address real-world challenges.
             </p>
         </div>
-        <div class="introimage margin20">
+        <div class="introimage margin20 mobileHide">
             <img src="src/IMG_6193.jpg" alt="src/IMG_6193.jpg" />
         </div>
 
     </div>
+
+</div>
+<div class="scrollDown">
+    <img src="https://assets-v2.lottiefiles.com/a/d6f1be62-1151-11ee-b34e-efc053e90fb2/1zWao1qSyt.gif">
+
+</div>
+<div class="scroll-container">
+    <section class="scroll-section" id="section1">
+        <h1>Section 1</h1>
+        <p>This is the content of section 1.</p>
+    </section>
+    <section class="scroll-section" id="section2">
+        <h1>Section 2</h1>
+        <p>This is the content of section 2.</p>
+    </section>
+    <section class="scroll-section" id="section3">
+        <h1>Section 3</h1>
+        <p>This is the content of section 3.</p>
+    </section>
 </div>
 <main>
     <div class="halloffamecontainer"></div>
 </main>
 </body>
+<script>
+    const sections = document.querySelectorAll('.scroll-section');
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                } else {
+                    entry.target.classList.remove('active');
+                }
+            });
+        },
+        {
+            threshold: 0.5, // Trigger when 50% of the section is visible
+        }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+</script>
 </html>
