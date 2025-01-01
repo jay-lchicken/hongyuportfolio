@@ -22,15 +22,15 @@
     <link rel="icon" href="src/IMG_6193.jpg" />
 </head>
 <header>
-    <div class="headercontainer flexbox">
-        <div class="title flexbox">
+    <div class="headercontainer flexboxRow">
+        <div class="title flexboxRow">
             <div class="logo">
                 <img src="src/IMG_6193.jpg" alt="src/IMG_6193.jpg" />
             </div>
             <h1 class="non">Lai Hong Yu</h1>
             <h1 class="mobile">Lai Hong Yu</h1>
         </div>
-        <div class="nav flexbox">
+        <div class="nav flexboxRow">
 
 
             <div class="navitem">
@@ -52,42 +52,50 @@
     </div>
 </header>
 <body>
-<div class="block">
-    <div class="mobileIntro">
-        <img src="src/IMG_6193.jpg" alt="src/IMG_6193.jpg" />
+<div class="topIMG scroll-animation">
+    <img src="IMG_0927.jpg" class="headerImg" />
+    <div class="line"></div>
+    <h1>LAI HONG YU</h1>
+    <div class="extraText flexboxRow">
+        <p>Software Developer | Hardware Engineer | Tech Enthusiast</p>
+        <p>Existed since 2011/11/14</p>
     </div>
-    <div class="intro flexbox">
-
-        <div class="introtext margin20">
-            <h1>Developer | Tech Enthusiast</h1>
-            <br>
-            <h1>Hello, I'm Lai Hong Yu!</h1>
-            <br>
-            <br>
-            <p>
-                I am a student at the School of Science and Technology, Singapore, with a strong passion for software development, hardware engineering, and robotics. As a member of my school’s robotics club, I have had the opportunity to participate in various competitions, improving my technical skills and problem-solving abilities.
-
-                Beyond my academic and extracurricular commitments, I enjoy exploring emerging technologies and applying them to create practical solutions. For instance, I developed a group announcement app that streamlines communication, allowing users to easily share updates with their communities. Additionally, I created a medicine reminder app designed to assist individuals in managing their medication schedules effectively.
-
-                My goal is to leverage technology to develop innovative tools that enhance people’s lives and address real-world challenges.
-            </p>
-        </div>
-        <div class="introimage margin20 mobileHide">
-            <img src="src/IMG_6193.jpg" alt="src/IMG_6193.jpg" />
-        </div>
-
-    </div>
-
 </div>
 <div class="scrollDown">
     <img src="https://assets-v2.lottiefiles.com/a/d6f1be62-1151-11ee-b34e-efc053e90fb2/1zWao1qSyt.gif">
 
 </div>
+<div class="block">
+    <div class="intro">
+        <div class="margin20 flexboxRow introText">
+            <h1 class="same-width left reveal-text" data-animate="true">
+                Hello, I'm Hong Yu!<br> A software developer | hardware engineer | tech enthusiast
+            </h1>
+            <h1 class="same-width right reveal-text" data-animate="true">
+                I am a student passionate about technology, robotics, and creating solutions that improve lives through innovation.
+            </h1>
+        </div>
+    </div>
+</div>
+<div class="scrollDown">
+    <img src="https://assets-v2.lottiefiles.com/a/d6f1be62-1151-11ee-b34e-efc053e90fb2/1zWao1qSyt.gif">
+
+</div>
+
 <div class="scroll-container">
-    <section class="scroll-section" id="section1">
-        <h1>Section 1</h1>
-        <p>This is the content of section 1.</p>
+    <section class="scroll-section flexboxRow" id="section1">
+
+        <div class="section-content flexboxRow margin20">
+            <h1>I work with: </h1>
+            <div class="skills-list flexboxColumn">
+                <h2>iOS Development (Swift, SwiftUI)</h2>
+                <h2>Web Development (NextJS, ReactJS, Static HTML)</h2>
+                <h2>Raspberry Pi</h2>
+                <h2>Arduino</h2>
+            </div>
+        </div>
     </section>
+
     <section class="scroll-section" id="section2">
         <h1>Section 2</h1>
         <p>This is the content of section 2.</p>
@@ -100,7 +108,6 @@
 <main>
     <div class="halloffamecontainer"></div>
 </main>
-</body>
 <script>
     const sections = document.querySelectorAll('.scroll-section');
 
@@ -115,11 +122,54 @@
             });
         },
         {
-            threshold: 0.5, // Trigger when 50% of the section is visible
+            threshold: 0.5,
         }
     );
 
     sections.forEach((section) => observer.observe(section));
 
+    document.addEventListener('DOMContentLoaded', function () {
+        const line = document.querySelector('.scroll-animation .line');
+        const text = document.querySelector('.scroll-animation h1');
+        const text2 = document.querySelector('.scroll-animation p:nth-of-type(2)');
+        const text3 = document.querySelector('.scroll-animation p:nth-of-type(1)');
+
+        const handleScroll = () => {
+            const rect = text.getBoundingClientRect();
+            const viewportHeight = window.innerHeight;
+
+            const progress = Math.min(Math.max((viewportHeight - rect.top) / (viewportHeight + rect.height)*1.5, 0), 1);
+
+            text.style.backgroundSize = `100% ${progress * 100}%`;
+            text2.style.backgroundSize = `100% ${progress * 100}%`;
+            text3.style.backgroundSize = `100% ${progress * 100}%`;
+
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+        const revealElements = document.querySelectorAll(".reveal-text[data-animate='true']");
+
+        const revealOnScroll = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("reveal-active");
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = new IntersectionObserver(revealOnScroll, {
+            root: null,
+            threshold: 0.1
+        });
+
+        revealElements.forEach(element => observer.observe(element));
+
+    });
 </script>
+</body>
+
 </html>
