@@ -23,6 +23,17 @@ export default {
         'gradient-3':  "linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)",
         'gradient-4': "  linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%)",
       },
+      scrollbar: {
+        none: {
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+          "&": {
+            "-ms-overflow-style": "none", /* IE and Edge */
+            "scrollbar-width": "none", /* Firefox */
+          },
+        },
+      },
     },
 
   },

@@ -15,7 +15,7 @@ export default function Home() {
                 gsap.to(batch, {
                     duration: 1,
                     autoAlpha: 1,
-                    y: -10,
+                    y: 0,
                     stagger: 0.1,
                 }),
             start: "top center",
@@ -69,6 +69,34 @@ export default function Home() {
                 ease: "power1.inOut",
             }
         );
+        let sections = gsap.utils.toArray(".panel");
+
+        gsap.to(sections, {
+            xPercent: -100 * (sections.length - 1),
+            ease: "none",
+            scrollTrigger: {
+                trigger: ".container",
+                pin: true,
+                scrub: 2,
+                snap: 1 / (sections.length - 1),
+                end: () => "+=" + document.querySelector(".container").offsetWidth
+            }
+        });
+        const container = document.querySelector(".container")
+
+        gsap.timeline({
+            scrollTrigger: {
+                trigger: container,
+                start: "top 50%",
+                end: "bottom 20%",
+                toggleActions: "restart none none reverse",
+                scrub: true,
+                // markers: true,
+            }
+        })
+            .to(container , {
+                scale: Math.max(window.innerWidth / container.offsetWidth, window.innerHeight / container.offsetHeight),
+            })
 
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
@@ -92,7 +120,7 @@ export default function Home() {
             </div>
 
             {/* Main Content */}
-            <div className="section relative flex justify-center align-middle items-center bg-gray-800">
+            <div className="section relative flex justify-center align-middle items-center bg-gray-800 overflow-hidden">
                 <div className="relative w-full h-full max-w-screen-xl rounded-3xl overflow-hidden bg-gray-800">
                     <img
                         src="/IMG_0927.jpeg"
@@ -100,8 +128,7 @@ export default function Home() {
                         className="w-full rounded-3xl item-img"
                     />
                     <h1
-                        className="absolute bottom-0 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white w-full text-center bg-black bg-opacity-50 py-4 typewriter"
-                        style={{ whiteSpace: "nowrap", overflow: "hidden", borderRight: "2px solid white" }}
+                        className="absolute inset-x-0 bottom-0 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center bg-black bg-opacity-50 py-4 typewriter"
                     >
                         LAI HONG YU
                     </h1>
@@ -109,16 +136,17 @@ export default function Home() {
             </div>
 
             {/* Description Section */}
-            <div className="section relative flex flex-col sm:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6">
+            <div
+                className="section relative flex flex-col sm:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6">
                 <div className="w-full max-w-4xl">
                     <h1 className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-white text-center m-4">
                         Hello, I'm Lai Hong Yu. I'm a{" "}
-                        <span className="bg-custom-gradient">software developer</span>,{" "}
+                        <span className="bg-text-gradient bg-clip-text text-transparent">software developer</span>,{" "}
                         <span className="bg-text-gradient bg-clip-text text-transparent">
                             hardware engineer
                         </span>
                         , and a{" "}
-                        <span className="bg-custom-gradient">tech enthusiast</span> too!
+                        <span className="bg-text-gradient bg-clip-text text-transparent">tech enthusiast</span> too!
                     </h1>
                 </div>
                 <div className="w-full max-w-4xl">
@@ -128,7 +156,47 @@ export default function Home() {
                     </h1>
                 </div>
             </div>
-            <div className="panels">
+
+            <div className="container flex flex-row h-screen overflow-x-scroll rounded-3xl scroll">
+                <div
+                    className="description panel bg-gradient-1 text-white flex items-center justify-center min-w-full flex-col">
+                    <h1
+                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                    >
+                        Scroll Down</h1>
+                    <img src="/arrow-down.gif.8d9aec7b8f92f2a50a1a64fce1733f3a.gif"/>
+                </div>
+
+                <section className="panel bg-gradient-2 text-white flex items-center justify-center min-w-full">
+                    <h1
+                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                    >Python</h1>
+                </section>
+
+                <section className="panel bg-gradient-3 text-white flex items-center justify-center min-w-full">
+                    <h1
+                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                    >Swift</h1>
+                </section>
+
+                <section className="panel bg-gradient-4 text-white flex items-center justify-center min-w-full">
+                    <h1
+                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                    >C++</h1>
+                </section>
+                <section className="panel bg-gradient-2 text-white flex items-center justify-center min-w-full">
+                    <h1
+                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                    >HTML/CSS/JS</h1>
+                </section>
+
+                <section className="panel bg-gradient-3 text-white flex items-center justify-center min-w-full">
+                    <h1
+                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                    >NextJS</h1>
+                </section>
+
+
             </div>
         </div>
 
