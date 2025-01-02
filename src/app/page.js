@@ -152,7 +152,7 @@ export default function Home() {
 
             </div>
             {/* Top Row */}
-            <div className="flex flex-row items-center w-full max-w-96 sm:max-w-screen-xl">
+            <div className="flex flex-row items-center w-full max-w-80 sm:max-w-96 md:max-w-screen-xl">
                 <img
                     src="/profile.png"
                     alt="Hong Yu"
@@ -166,7 +166,7 @@ export default function Home() {
             {/* Main Content */}
             <div id="section"
                  className="section relative flex justify-center align-middle items-center bg-gray-800 overflow-hidden">
-                <div className="relative w-full h-full max-w-96 sm:max-w-screen-xl rounded-3xl overflow-hidden bg-gray-800">
+                <div className="relative w-full h-full max-w-80 sm:max-w-96 md:max-w-screen-xl rounded-3xl overflow-hidden bg-gray-800">
                     <img
                         src="/IMG_0927.jpeg"
                         alt="Hong Yu"
@@ -182,7 +182,7 @@ export default function Home() {
 
             {/* Description Section */}
             <div
-                className="section relative flex flex-col sm:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-96 sm:max-w-screen-xl">
+                className="section relative flex flex-col sm:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-80 md:max-w-96 lg:max-w-screen-xl">
                 <div className="w-full max-w-4xl">
                     <h1 className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-white text-center m-4">
                         Hello, I'm Lai Hong Yu. I'm a{" "}
