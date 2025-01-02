@@ -7,12 +7,10 @@ export default {
   ],
   theme: {
     extend: {
-        fontFamily: {
-            inter: ["var(--font-inter)"],
-        },
-
+      fontFamily: {
+        inter: ["var(--font-inter)"],
+      },
       colors: {
-
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
@@ -20,8 +18,8 @@ export default {
         'text-gradient': "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)",
         'gradient-1': "linear-gradient(160deg, #0093E9 0%, #80D0C7 100%)",
         'gradient-2': "linear-gradient(45deg, #85FFBD 0%, #FFFB7D 100%)",
-        'gradient-3':  "linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)",
-        'gradient-4': "  linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%)",
+        'gradient-3': "linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)",
+        'gradient-4': "linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%)",
       },
       scrollbar: {
         none: {
@@ -34,8 +32,15 @@ export default {
           },
         },
       },
+      maxWidth: {
+        'small': '27rem', // Example custom width
+        'medium': '34rem', // Medium custom width
+        'large': '42rem', // Large custom width
+        'large2': '60rem', // Large custom width
+        'screen-90': '90vw', // 90% of viewport width
+        'screen-80': '80vw', // 80% of viewport width
+      },
     },
-
   },
   plugins: [],
 };
