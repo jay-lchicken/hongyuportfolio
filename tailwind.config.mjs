@@ -33,7 +33,7 @@ export default {
         },
       },
       maxWidth: {
-        'small': '27rem', // Example custom width
+        'small': '22rem', // Example custom width
         'medium': '34rem', // Medium custom width
         'large': '42rem', // Large custom width
         'large2': '60rem', // Large custom width
