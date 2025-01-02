@@ -53,12 +53,19 @@ export default function Home() {
             { width: "0ch" },
             {
                 width: "100%",
-                duration: 3,
+                duration: 1,
                 ease: "steps(40)",
                 delay: 0.5,
+                scrollTrigger: {
+                    trigger: ".typewriter", // The element that triggers the animation
+                    start: "top 80%", // When the element enters the viewport
+                    end: "top 20%", // When the element is scrolled past
+                    scrub: true, // Smooth scrubbing
+                },
             }
         );
 
+// Blinking cursor effect triggered by ScrollTrigger
         gsap.fromTo(
             ".typewriter",
             { borderRightColor: "rgba(255, 255, 255, 0.75)" },
@@ -67,6 +74,11 @@ export default function Home() {
                 duration: 0.5,
                 repeat: -1,
                 ease: "power1.inOut",
+                scrollTrigger: {
+                    trigger: ".typewriter", // Same trigger element
+                    start: "top 20%", // When the element enters the viewport
+                    end: "top 100%", // When the element is scrolled past
+                },
             }
         );
         let sections = gsap.utils.toArray(".panel");
@@ -98,17 +110,49 @@ export default function Home() {
                 scale: Math.max(window.innerWidth / container.offsetWidth, window.innerHeight / container.offsetHeight),
             })
 
+        let titles = gsap.utils.toArray(".title"),
+            offset = titles[1].offsetTop - titles[0].offsetTop;
+
+// loop through each "h2" element and create an animation/ScrollTrigger for each
+        titles.forEach((element, i) => {
+            element.anim = gsap.to(element, {
+                opacity: 1,
+                ease: "none",
+                scrollTrigger: {
+                    trigger: element,
+                    start: "center center+=" + offset / 2,
+                    end: "center center-=" + offset / 2,
+                    markers: false,
+                    toggleActions: "play reverse play reverse"
+                }
+            });
+        });
+
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
         };
     }, []);
 
     return (
+
         <div
-            className="grid grid-rows-[auto_1fr_auto] items-center justify-center align-middle justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20  bg-gray-800"
+            className="  grid grid-rows-[auto_1fr_auto] items-center justify-center align-middle justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20  bg-gray-800"
         >
+
+            <div className="flex flex-col w-screen ">
+                <section className="skills w-screen h-screen flex items-center justify-center">
+                    <h2
+                        className=" opacity-0 title text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                    >Welcome to my</h2>
+                </section>
+                <section className=" skills w-screen h-screen flex items-center justify-center">
+                    <h2                         className="opacity-0 title text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                    >Portfolio</h2>
+                </section>
+
+            </div>
             {/* Top Row */}
-            <div className="flex flex-row items-center w-full">
+            <div className="flex flex-row items-center w-full max-w-screen-xl">
                 <img
                     src="/profile.png"
                     alt="Hong Yu"
@@ -120,7 +164,8 @@ export default function Home() {
             </div>
 
             {/* Main Content */}
-            <div className="section relative flex justify-center align-middle items-center bg-gray-800 overflow-hidden">
+            <div id="section"
+                 className="section relative flex justify-center align-middle items-center bg-gray-800 overflow-hidden">
                 <div className="relative w-full h-full max-w-screen-xl rounded-3xl overflow-hidden bg-gray-800">
                     <img
                         src="/IMG_0927.jpeg"
@@ -137,7 +182,7 @@ export default function Home() {
 
             {/* Description Section */}
             <div
-                className="section relative flex flex-col sm:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6">
+                className="section relative flex flex-col sm:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-screen-xl">
                 <div className="w-full max-w-4xl">
                     <h1 className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-white text-center m-4">
                         Hello, I'm Lai Hong Yu. I'm a{" "}
@@ -156,8 +201,17 @@ export default function Home() {
                     </h1>
                 </div>
             </div>
+            <style jsx>{`
+                .no-scrollbar {
+                    -ms-overflow-style: none; /* Internet Explorer 10+ */
+                    scrollbar-width: none; /* Firefox */
+                }
 
-            <div className="container flex flex-row h-screen overflow-x-scroll rounded-3xl scroll">
+                .no-scrollbar::-webkit-scrollbar {
+                    display: none; /* Safari and Chrome */
+                }
+            `}</style>
+            <div className="container flex flex-row h-screen overflow-x-scroll rounded-3xl scroll no-scrollbar">
                 <div
                     className="description panel bg-gradient-1 text-white flex items-center justify-center min-w-full flex-col">
                     <h1
@@ -169,7 +223,7 @@ export default function Home() {
 
                 <section className="panel bg-gradient-2 text-white flex items-center justify-center min-w-full">
                     <h1
-                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                        className=" text-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
                     >Python</h1>
                 </section>
 
@@ -186,7 +240,7 @@ export default function Home() {
                 </section>
                 <section className="panel bg-gradient-2 text-white flex items-center justify-center min-w-full">
                     <h1
-                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                        className=" text-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
                     >HTML/CSS/JS</h1>
                 </section>
 
@@ -198,6 +252,7 @@ export default function Home() {
 
 
             </div>
+            <h1>Hello?</h1>
         </div>
 
     );
