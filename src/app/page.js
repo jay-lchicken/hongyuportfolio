@@ -89,7 +89,7 @@ export default function Home() {
             scrollTrigger: {
                 trigger: ".container",
                 pin: true,
-                scrub: 1,
+                scrub: 0.1,
                 snap: 1 / (sections.length - 1),
                 end: () => "+=" + document.querySelector(".container").offsetWidth * 15 // Double the scrollable distance
             }
@@ -146,13 +146,14 @@ export default function Home() {
                     >Welcome to my</h2>
                 </section>
                 <section className=" skills w-screen h-screen flex items-center justify-center">
-                    <h2                         className="opacity-0 title text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                    <h2 className="opacity-0 title text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
                     >Portfolio</h2>
                 </section>
 
             </div>
             {/* Top Row */}
-            <div className="flex flex-row items-center w-full max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl">
+            <div
+                className="flex flex-row items-center w-full max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl">
                 <img
                     src="/profile.png"
                     alt="Hong Yu"
@@ -166,7 +167,8 @@ export default function Home() {
             {/* Main Content */}
             <div id="section"
                  className="section relative flex justify-center align-middle items-center bg-gray-800 overflow-hidden">
-                <div className="relative w-full h-full max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl rounded-3xl overflow-hidden bg-gray-800">
+                <div
+                    className="relative w-full h-full max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl rounded-3xl overflow-hidden bg-gray-800">
                     <img
                         src="/IMG_0927.jpeg"
                         alt="Hong Yu"
@@ -211,6 +213,7 @@ export default function Home() {
                     display: none; /* Safari and Chrome */
                 }
             `}</style>
+            {/* Skills Section */}
             <div className="container flex flex-row h-screen overflow-x-scroll rounded-3xl scroll no-scrollbar ">
                 <div
                     className="description panel bg-gradient-1 text-white flex items-center justify-center min-w-full flex-col">
@@ -218,13 +221,18 @@ export default function Home() {
                         className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
                     >
                         Scroll Down</h1>
+                    <h1
+                        className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white  text-center py-4"
+                    >
+                        Coding languages i know</h1>
                     <img src="/arrow-down.gif.8d9aec7b8f92f2a50a1a64fce1733f3a.gif"/>
                 </div>
 
-                <section className="panel bg-gradient-2 text-white flex items-center justify-center min-w-full">
+                <section className="panel bg-gradient-2 text-white flex flex-col items-center justify-center min-w-full">
                     <h1
                         className=" text-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
                     >Python</h1>
+                    <img src="/248484.png" className="w-40"/>
                 </section>
 
                 <section className="panel bg-gradient-3 text-white flex items-center justify-center min-w-full">

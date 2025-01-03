@@ -679,6 +679,9 @@ video {
 .h-screen {
   height: 100vh;
 }
+.h-40 {
+  height: 10rem;
+}
 .min-h-screen {
   min-height: 100vh;
 }
@@ -687,6 +690,9 @@ video {
 }
 .w-screen {
   width: 100vw;
+}
+.w-40 {
+  width: 10rem;
 }
 .min-w-full {
   min-width: 100%;
@@ -803,6 +809,10 @@ video {
   font-size: 1.25rem;
   line-height: 1.75rem;
 }
+.text-3xl {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
 .font-bold {
   font-weight: 700;
 }
@@ -880,6 +890,11 @@ body {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
+
+  .sm\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
 }
 
 @media (min-width: 768px) {
@@ -895,6 +910,11 @@ body {
 
   .md\:text-7xl {
     font-size: 4.5rem;
+    line-height: 1;
+  }
+
+  .md\:text-5xl {
+    font-size: 3rem;
     line-height: 1;
   }
 }
@@ -918,6 +938,11 @@ body {
     font-size: 6rem;
     line-height: 1;
   }
+
+  .lg\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -933,6 +958,11 @@ body {
 
   .xl\:text-9xl {
     font-size: 8rem;
+    line-height: 1;
+  }
+
+  .xl\:text-7xl {
+    font-size: 4.5rem;
     line-height: 1;
   }
 }
