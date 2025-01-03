@@ -2,11 +2,27 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-
+import SplitType from "split-type";
 gsap.registerPlugin(ScrollTrigger);
+import { useForm, ValidationError } from "@formspree/react";
 
 export default function Home() {
+
+    const [state, handleSubmit] = useForm("xvggvkrq");
+    const validateYesInput = (event) => {
+        const value = event.target.value;
+        if (value !== "YES") {
+            state.errors.push({
+                field: "data",
+                message: 'You must type "YES" to proceed.',
+            });
+        } else {
+            state.errors = state.errors.filter(error => error.field !== "data");
+        }
+    };
     useEffect(() => {
+
+
         // GSAP Scroll Animation for Images
         gsap.set(".item-img", { y: 100, autoAlpha: 0 });
 
@@ -81,17 +97,22 @@ export default function Home() {
                 },
             }
         );
+
         let sections = gsap.utils.toArray(".panel");
 
         gsap.to(sections, {
-            xPercent: -100 * (sections.length-1),
+            xPercent: -100 * (sections.length - 1),
             ease: "none",
             scrollTrigger: {
                 trigger: ".container",
                 pin: true,
-                scrub: 0.1,
-                snap: 1 / (sections.length - 1),
-                end: () => "+=" + document.querySelector(".container").offsetWidth * 15 // Double the scrollable distance
+                scrub:1,
+                snap: {
+                    snapTo: 1 / (sections.length - 1),
+                    duration: 0.01,
+                },
+                // base vertical scrolling on how wide the container is so it feels more natural.
+                end: "+=3500",
             }
         });
         const container = document.querySelector(".container")
@@ -186,7 +207,7 @@ export default function Home() {
             <div
                 className="section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl">
                 <div className="w-full max-w-4xl">
-                    <h1 className="text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-white text-center m-4">
+                    <h1 className="hi text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-white text-center m-4">
                         Hello, I'm Lai Hong Yu. I'm a{" "}
                         <span className="bg-text-gradient bg-clip-text text-transparent">software developer</span>,{" "}
                         <span className="bg-text-gradient bg-clip-text text-transparent">
@@ -217,10 +238,7 @@ export default function Home() {
             <div className="container flex flex-row h-screen overflow-x-scroll rounded-3xl scroll no-scrollbar ">
                 <div
                     className="description panel bg-gradient-1 text-white flex items-center justify-center min-w-full flex-col">
-                    <h1
-                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
-                    >
-                        Scroll Down</h1>
+
                     <h1
                         className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white  text-center py-4"
                     >
@@ -228,39 +246,100 @@ export default function Home() {
                     <img src="/arrow-down.gif.8d9aec7b8f92f2a50a1a64fce1733f3a.gif"/>
                 </div>
 
-                <section className="panel bg-gradient-2 text-white flex flex-col items-center justify-center min-w-full">
-                    <h1
-                        className=" text-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
-                    >Python</h1>
-                    <img src="/248484.png" className="w-40"/>
+                <section
+                    className="panel bg-gradient-2 text-white flex flex-col items-center justify-center min-w-full">
+
+                    <img src="/python-5-logo-png-transparent.png" className="w-36"/>
                 </section>
 
-                <section className="panel bg-gradient-3 text-white flex items-center justify-center min-w-full">
-                    <h1
-                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
-                    >Swift</h1>
+                <section
+                    className="panel bg-gradient-3 text-white flex flex-col items-center justify-center min-w-full">
+
+                    <img src="/png-clipart-apple-worldwide-developers-conference-swift-ios-apple-orange-logo.png"
+                         className="w-40"/>
                 </section>
 
-                <section className="panel bg-gradient-4 text-white flex items-center justify-center min-w-full">
-                    <h1
-                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
-                    >C++</h1>
+                <section
+                    className="panel bg-gradient-4 text-white flex flex-col items-center justify-center min-w-full">
+
+                    <img src="/13841574.png"
+                         className="w-40"/>
+
                 </section>
-                <section className="panel bg-gradient-2 text-white flex items-center justify-center min-w-full">
-                    <h1
-                        className=" text-black text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
-                    >HTML/CSS/JS</h1>
+                <section
+                    className="panel bg-gradient-2 text-white flex flex-col items-center justify-center min-w-full">
+
+                    <img src="/front-end-stack.png"
+                         className="w-80"/>
                 </section>
 
-                <section className="panel bg-gradient-3 text-white flex items-center justify-center min-w-full">
-                    <h1
-                        className=" text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
-                    >NextJS</h1>
+                <section
+                    className="panel bg-gradient-3 text-white flex flex-col items-center justify-center min-w-full">
+
+                    <img src="/1_gxOA6-EF8P8vnYdk3Bc9bg.png"
+                         className="w-80"/>
                 </section>
 
 
             </div>
-            <h1>TO BE CONTINUED</h1>
+            <form onSubmit={handleSubmit}
+                  className="max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl mx-auto border-8 border-white rou shadow-md rounded-3xl p-6 w-full">
+                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold text-center m-4">
+                    Contact Me</h1>
+                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-light text-center m-4">
+                    I will get in touch soon! Talk to you soon!</h1>
+                <div className="mb-4">
+                    <label htmlFor="email" className="block text-sm font-medium text-white mb-1">
+                        Email Address
+                    </label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="Enter your email"
+                        required
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800 bg-gray-100"
+                    />
+                    <ValidationError
+                        prefix="Email"
+                        field="email"
+                        errors={state.errors}
+                        className="text-red-600 text-sm mt-1"
+                    />
+                </div>
+
+                <div className="mb-4">
+                    <label htmlFor="message" className="block text-sm font-medium text-white mb-1">
+                        Your Message
+                    </label>
+
+                    <textarea
+                        id="message"
+                        name="message"
+                        placeholder="Write your message here"
+                        required
+                        rows="4"
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-gray-800 bg-gray-100"
+                    />
+                    <ValidationError
+                        prefix="Message"
+                        field="message"
+                        errors={state.errors}
+                        className="text-red-600 text-sm mt-1"
+                    />
+                </div>
+
+                <h1 className="mb-4">Submit the form only if you agree to share your data with me and that you understand that data stored in
+                    Formspree is always at risk of a data leak</h1>
+                <button
+                    type="submit"
+                    disabled={state.submitting}
+                    className={`w-full px-4 py-2 text-white font-medium rounded-lg 
+    ${state.submitting ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"}`}
+                >
+                    {state.submitting ? "Sending..." : "Submit"}
+                </button>
+            </form>
         </div>
 
     );
