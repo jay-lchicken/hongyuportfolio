@@ -20,6 +20,9 @@ export default function Home() {
             state.errors = state.errors.filter(error => error.field !== "data");
         }
     };
+    if (state.succeeded) {
+        window.location.href = "/succeed";
+    }
     useEffect(() => {
 
 
@@ -148,11 +151,17 @@ export default function Home() {
                 }
             });
         });
+        const interval = setInterval(() => {
+            if (state.succeeded) {
+                window.location.href = "/succeed";
+            }
+        }, 1000);
 
         return () => {
             ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+            clearInterval(interval);
         };
-    }, []);
+    }, [state.succeeded]);
 
     return (
 
@@ -283,7 +292,7 @@ export default function Home() {
 
             </div>
             <form onSubmit={handleSubmit}
-                  className="max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl mx-auto border-8 border-white rou shadow-md rounded-3xl p-6 w-full">
+                  className="max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl mx-auto border-8 border-white rou shadow-md rounded-3xl p-6 w-full m-4">
                 <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold text-center m-4">
                     Contact Me</h1>
                 <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-light text-center m-4">
@@ -335,7 +344,7 @@ export default function Home() {
                     type="submit"
                     disabled={state.submitting}
                     className={`w-full px-4 py-2 text-white font-medium rounded-lg 
-    ${state.submitting ? "bg-gray-400 cursor-not-allowed" : "bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"}`}
+    ${state.submitting ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-1 hover:bg-gradient-3 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"}`}
                 >
                     {state.submitting ? "Sending..." : "Submit"}
                 </button>

@@ -10,6 +10,17 @@
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/page.js"
+    ],
+    "/succeed/layout": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/css/app/succeed/layout.css",
+      "static/chunks/app/succeed/layout.js"
+    ],
+    "/succeed/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/succeed/page.js"
     ]
   }
 }
