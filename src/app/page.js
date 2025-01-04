@@ -214,8 +214,8 @@ export default function Home() {
 
             {/* Description Section */}
             <div
-                className="section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl">
-                <div className="w-full max-w-4xl">
+                className="section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl ">
+                <div className="w-full max-w-4xl hover:scale-105 transition-transform">
                     <h1 className="hi text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-white text-center m-4">
                         Hello, I'm Lai Hong Yu. I'm a{" "}
                         <span className="bg-text-gradient bg-clip-text text-transparent">software developer</span>,{" "}
@@ -227,7 +227,7 @@ export default function Home() {
                     </h1>
                 </div>
                 <div className="w-full max-w-4xl">
-                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-thin text-center m-4">
+                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-thin text-center m-4 hover:scale-105 transition-transform">
                         With over 6 years of experience in the technology field, I have learned
                         many coding languages.
                     </h1>
@@ -258,35 +258,35 @@ export default function Home() {
                 <section
                     className="panel bg-gradient-2 text-white flex flex-col items-center justify-center min-w-full">
 
-                    <img src="/python-5-logo-png-transparent.png" className="w-36"/>
+                    <img src="/python-5-logo-png-transparent.png" className="w-36 hover:scale-125 transition-transform"/>
                 </section>
 
                 <section
                     className="panel bg-gradient-3 text-white flex flex-col items-center justify-center min-w-full">
 
                     <img src="/png-clipart-apple-worldwide-developers-conference-swift-ios-apple-orange-logo.png"
-                         className="w-40"/>
+                         className="w-40 hover:scale-125 transition-transform"/>
                 </section>
 
                 <section
                     className="panel bg-gradient-4 text-white flex flex-col items-center justify-center min-w-full">
 
                     <img src="/13841574.png"
-                         className="w-40"/>
+                         className="w-40 hover:scale-125 transition-transform"/>
 
                 </section>
                 <section
                     className="panel bg-gradient-2 text-white flex flex-col items-center justify-center min-w-full">
 
                     <img src="/front-end-stack.png"
-                         className="w-80"/>
+                         className="w-80 hover:scale-125 transition-transform"/>
                 </section>
 
                 <section
                     className="panel bg-gradient-3 text-white flex flex-col items-center justify-center min-w-full">
 
                     <img src="/1_gxOA6-EF8P8vnYdk3Bc9bg.png"
-                         className="w-80"/>
+                         className="w-80 hover:scale-125 transition-transform"/>
                 </section>
 
 
@@ -343,7 +343,7 @@ export default function Home() {
                 <button
                     type="submit"
                     disabled={state.submitting}
-                    className={`w-full px-4 py-2 text-white font-medium rounded-lg 
+                    className={`w-full px-4 py-2 text-white font-medium rounded-lg hover:scale-105 transition-transform
     ${state.submitting ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-1 hover:bg-gradient-3 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"}`}
                 >
                     {state.submitting ? "Sending..." : "Submit"}
