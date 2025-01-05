@@ -1,13 +1,17 @@
 "use client";
+import {getGithubBuildData} from "@/components/githubdata";
 import { useEffect } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import SplitType from "split-type";
 gsap.registerPlugin(ScrollTrigger);
 import { useForm, ValidationError } from "@formspree/react";
-
+import { useState } from "react";
+import fetchBuildInfo from "@/components/githubdata";
 export default function Home() {
+    const [githubData, setGithubData] = useState(null);
 
+    const [buildInfo, setBuildInfo] = useState(null);
     const [state, handleSubmit] = useForm("xvggvkrq");
     const validateYesInput = (event) => {
         const value = event.target.value;
@@ -23,9 +27,14 @@ export default function Home() {
     if (state.succeeded) {
         window.location.href = "/succeed";
     }
+
     useEffect(() => {
+        const fetchData = async () => {
+            const data = await getGithubBuildData();
+            setGithubData(data);
+        };
 
-
+        fetchData();
         // GSAP Scroll Animation for Images
         gsap.set(".item-img", { y: 100, autoAlpha: 0 });
 
@@ -258,7 +267,8 @@ export default function Home() {
                 <section
                     className="panel bg-gradient-2 text-white flex flex-col items-center justify-center min-w-full">
 
-                    <img src="/python-5-logo-png-transparent.png" className="w-36 hover:scale-125 transition-transform"/>
+                    <img src="/python-5-logo-png-transparent.png"
+                         className="w-36 hover:scale-125 transition-transform"/>
                 </section>
 
                 <section
@@ -338,17 +348,20 @@ export default function Home() {
                     />
                 </div>
 
-                <h1 className="mb-4">Submit the form only if you agree to share your data with me and that you understand that data stored in
-                    Formspree is always at risk of a data leak</h1>
+                <h1 className="mb-4">Submit the form only if you agree that all data stored in our server is always at
+                    risk of a data leak</h1>
                 <button
                     type="submit"
                     disabled={state.submitting}
-                    className={`w-full px-4 py-2 text-white font-medium rounded-lg hover:scale-105 transition-transform
+                    className={`w-full px-4 py-2 text-white font-medium rounded-lg hover:scale-105 lg:hover:scale-100 hover:transition-all hover:transition-colors
     ${state.submitting ? "bg-gray-400 cursor-not-allowed" : "bg-gradient-1 hover:bg-gradient-3 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"}`}
                 >
                     {state.submitting ? "Sending..." : "Submit"}
                 </button>
             </form>
+            <section>
+                {githubData || <p>Loading GitHub data...</p>}
+            </section>
         </div>
 
     );
