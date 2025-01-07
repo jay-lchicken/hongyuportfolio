@@ -143,6 +143,27 @@ export default function Home() {
                 scale: Math.max(window.innerWidth / container.offsetWidth, window.innerHeight / container.offsetHeight),
             })
 
+
+
+        const contents = gsap.utils.toArray(".content");
+
+
+        contents.forEach((el, i) => {
+            if (i === contents.length - 1) {
+                // Skip pinning for the last section
+                return;
+            }
+
+            ScrollTrigger.create({
+                trigger: el,
+                start: "center center", // Start pinning when the section's center reaches the viewport's center
+                end: `top bottom `, // Pin duration equals one viewport height
+                pin: true, // Enable pinning
+                pinSpacing: false, // Allow stacking
+                markers: true, // Debugging markers
+                endTrigger: ".hello"
+            });
+        });
         let titles = gsap.utils.toArray(".title"),
             offset = titles[1].offsetTop - titles[0].offsetTop;
 
@@ -301,8 +322,32 @@ export default function Home() {
 
 
             </div>
+            <h2
+                className="mt-96  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white  text-center py-4"
+            >LATEST WORK</h2>
+            <div
+                className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-[600px]">
+                <h1>Project 1</h1>
+            </div>
+            <div
+                className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-[600px]">
+                <h1>Project 2</h1>
+            </div>
+            <div
+                className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-[600px]">
+                <h1>Project 3</h1>
+            </div>
+            <div
+                className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-[600px]">
+                <h1>Project 4</h1>
+            </div>
+            {/*<div*/}
+            {/*    className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-[600px]">*/}
+
+            {/*</div> /!*Do not remove, this adds space*!/*/}
+
             <form onSubmit={handleSubmit}
-                  className="max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl mx-auto border-8 border-white rou shadow-md rounded-3xl p-6 w-full m-4">
+                  className="hello max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl mx-auto border-8 border-white rou shadow-md rounded-3xl p-6 w-full m-4">
                 <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold text-center m-4">
                     Contact Me</h1>
                 <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-light text-center m-4">

@@ -1,39 +1,6 @@
 {
   "node": {
-    "00a0d9df129f08c91562f6d00e1a530fb5c7a4f655": {
-      "workers": {
-        "app/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjay_lchicken%2FWebstormProjects%2Fhongyuportfolio%2Fsrc%2Fcomponents%2Fgithubdata.js%22%2C%5B%5B%220017d0c14be6a680f29f0a3dab46e2cea0eb285f8e%22%2C%22getGithubBuildData%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/page": "action-browser"
-      }
-    },
     "0017d0c14be6a680f29f0a3dab46e2cea0eb285f8e": {
-      "workers": {
-        "app/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjay_lchicken%2FWebstormProjects%2Fhongyuportfolio%2Fsrc%2Fcomponents%2Fgithubdata.js%22%2C%5B%5B%220017d0c14be6a680f29f0a3dab46e2cea0eb285f8e%22%2C%22getGithubBuildData%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/page": "action-browser"
-      }
-    },
-    "004b822d3fb45c26e457f0d5deeae56607a4b6e0f8": {
-      "workers": {
-        "app/page": {
-          "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjay_lchicken%2FWebstormProjects%2Fhongyuportfolio%2Fsrc%2Fcomponents%2Fgithubdata.js%22%2C%5B%5B%220017d0c14be6a680f29f0a3dab46e2cea0eb285f8e%22%2C%22getGithubBuildData%22%5D%5D%5D%5D&__client_imported__=true!",
-          "async": false
-        }
-      },
-      "layer": {
-        "app/page": "action-browser"
-      }
-    },
-    "00bf6c7ee7c121e4e89c840bdd1080c1fe296625f5": {
       "workers": {
         "app/page": {
           "moduleId": "(action-browser)/./node_modules/next/dist/build/webpack/loaders/next-flight-action-entry-loader.js?actions=%5B%5B%22%2FUsers%2Fjay_lchicken%2FWebstormProjects%2Fhongyuportfolio%2Fsrc%2Fcomponents%2Fgithubdata.js%22%2C%5B%5B%220017d0c14be6a680f29f0a3dab46e2cea0eb285f8e%22%2C%22getGithubBuildData%22%5D%5D%5D%5D&__client_imported__=true!",
