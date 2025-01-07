@@ -40,6 +40,10 @@ export default {
         'screen-90': '90vw', // 90% of viewport width
         'screen-80': '80vw', // 80% of viewport width
       },
+      height: {
+        'six': '600px',
+      },
+
     },
   },
   plugins: [],

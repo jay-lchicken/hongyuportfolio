@@ -680,12 +680,6 @@ video {
 .mt-1 {
   margin-top: 0.25rem;
 }
-.mt-10 {
-  margin-top: 2.5rem;
-}
-.mt-20 {
-  margin-top: 5rem;
-}
 .mt-5 {
   margin-top: 1.25rem;
 }
@@ -707,16 +701,19 @@ video {
 .h-96 {
   height: 24rem;
 }
+.h-\[600\] {
+  height: 600;
+}
+.h-\[600px\] {
+  height: 600px;
+}
 .h-full {
   height: 100%;
 }
 .h-screen {
   height: 100vh;
 }
-.h-svh {
-  height: 100svh;
-}
-.h-\[600px\] {
+.h-six {
   height: 600px;
 }
 .min-h-screen {
@@ -960,11 +957,6 @@ video {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
 }
-.transition {
-  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
 
 :root {
   --background: #ffffff;
@@ -1064,6 +1056,11 @@ body {
     line-height: 2.5rem;
   }
 
+  .sm\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
   .sm\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -1072,11 +1069,6 @@ body {
   .sm\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
-  }
-
-  .sm\:text-5xl {
-    font-size: 3rem;
-    line-height: 1;
   }
 }
 
@@ -1096,13 +1088,13 @@ body {
     line-height: 1;
   }
 
-  .md\:text-7xl {
-    font-size: 4.5rem;
+  .md\:text-6xl {
+    font-size: 3.75rem;
     line-height: 1;
   }
 
-  .md\:text-6xl {
-    font-size: 3.75rem;
+  .md\:text-7xl {
+    font-size: 4.5rem;
     line-height: 1;
   }
 }
@@ -1127,13 +1119,13 @@ body {
     line-height: 1;
   }
 
-  .lg\:text-8xl {
-    font-size: 6rem;
+  .lg\:text-7xl {
+    font-size: 4.5rem;
     line-height: 1;
   }
 
-  .lg\:text-7xl {
-    font-size: 4.5rem;
+  .lg\:text-8xl {
+    font-size: 6rem;
     line-height: 1;
   }
 
@@ -1160,13 +1152,13 @@ body {
     line-height: 1;
   }
 
-  .xl\:text-9xl {
-    font-size: 8rem;
+  .xl\:text-8xl {
+    font-size: 6rem;
     line-height: 1;
   }
 
-  .xl\:text-8xl {
-    font-size: 6rem;
+  .xl\:text-9xl {
+    font-size: 8rem;
     line-height: 1;
   }
 }
