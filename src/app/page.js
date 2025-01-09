@@ -149,10 +149,6 @@ export default function Home() {
 
 
         contents.forEach((el, i) => {
-            if (i === contents.length - 1) {
-                // Skip pinning for the last section
-                return;
-            }
 
             ScrollTrigger.create({
                 trigger: el,
@@ -160,8 +156,9 @@ export default function Home() {
                 end: `top bottom `, // Pin duration equals one viewport height
                 pin: true, // Enable pinning
                 pinSpacing: false, // Allow stacking
-                markers: true, // Debugging markers
-                endTrigger: ".hello"
+                markers: false, // Debugging markers
+                endTrigger: ".hello",
+
             });
         });
         let titles = gsap.utils.toArray(".title"),
@@ -326,19 +323,21 @@ export default function Home() {
                 className="mt-96  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white  text-center py-4"
             >LATEST WORK</h2>
             <div
-                className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-six">
+                className="content mt-5 relative flex flex-col lg:flex-row justify-center items-center  bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six">
+                {/*<h1 className="   text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white   py-4"*/}
+                {/*>Attendance Taker for KLC</h1>*/}
                 <h1>Project 1</h1>
             </div>
             <div
-                className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-six">
+                className="content mt-5  relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six">
                 <h1>Project 2</h1>
             </div>
             <div
-                className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-six">
+                className="content mt-5  relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six">
                 <h1>Project 3</h1>
             </div>
             <div
-                className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-six">
+                className="content mt-5  relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six">
                 <h1>Project 4</h1>
             </div>
             {/*<div*/}

@@ -1,9 +1,13 @@
 "use server";
 import { Octokit } from "octokit";
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
+import dotenv from "dotenv";
+dotenv.config();
 
 export async function getGithubBuildData() {
+    const githubKey = process.env.NEXT_PUBLIC_GITHUB_KEY;
     const octokit = new Octokit({
-        auth: "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", // Use your token here
+        auth: githubKey, // Use your token here
     });
 
     try {

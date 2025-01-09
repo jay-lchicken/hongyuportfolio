@@ -42,6 +42,7 @@ export default {
       },
       height: {
         'six': '600px',
+        'three': '300px',
       },
 
     },

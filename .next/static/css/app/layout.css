@@ -701,9 +701,6 @@ video {
 .h-96 {
   height: 24rem;
 }
-.h-\[600\] {
-  height: 600;
-}
 .h-\[600px\] {
   height: 600px;
 }
@@ -713,8 +710,8 @@ video {
 .h-screen {
   height: 100vh;
 }
-.h-six {
-  height: 600px;
+.h-three {
+  height: 300px;
 }
 .min-h-screen {
   min-height: 100vh;
@@ -878,6 +875,10 @@ video {
 }
 .align-middle {
   vertical-align: middle;
+}
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .text-3xl {
   font-size: 1.875rem;
@@ -1051,6 +1052,11 @@ body {
     padding: 5rem;
   }
 
+  .sm\:text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+  }
+
   .sm\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
@@ -1074,6 +1080,10 @@ body {
 
 @media (min-width: 768px) {
 
+  .md\:h-six {
+    height: 600px;
+  }
+
   .md\:max-w-large {
     max-width: 42rem;
   }
@@ -1081,6 +1091,11 @@ body {
   .md\:text-2xl {
     font-size: 1.5rem;
     line-height: 2rem;
+  }
+
+  .md\:text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
   }
 
   .md\:text-5xl {
@@ -1114,6 +1129,11 @@ body {
     line-height: 2.25rem;
   }
 
+  .lg\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
   .lg\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -1145,6 +1165,11 @@ body {
   .xl\:text-4xl {
     font-size: 2.25rem;
     line-height: 2.5rem;
+  }
+
+  .xl\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
   }
 
   .xl\:text-7xl {
