@@ -41,8 +41,8 @@ export default {
         'screen-80': '80vw', // 80% of viewport width
       },
       height: {
-        'six': '600px',
-        'three': '300px',
+        'six': '700px',
+        'three': '400px',
       },
 
     },
