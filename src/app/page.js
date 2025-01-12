@@ -13,7 +13,17 @@ export default function Home() {
 
     const [buildInfo, setBuildInfo] = useState(null);
     const [state, handleSubmit] = useForm("xvggvkrq");
-
+    const validateYesInput = (event) => {
+        const value = event.target.value;
+        if (value !== "YES") {
+            state.errors.push({
+                field: "data",
+                message: 'You must type "YES" to proceed.',
+            });
+        } else {
+            state.errors = state.errors.filter(error => error.field !== "data");
+        }
+    };
     if (state.succeeded) {
         window.location.href = "/succeed";
     }
@@ -313,88 +323,22 @@ export default function Home() {
                 className="mt-96  text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold text-white  text-center py-4"
             >LATEST WORK</h2>
             <div
-                className="content mt-5 relative flex flex-col bg-gray-700 w-full h-full rounded-3xl space-y-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six overflow-hidden"
-            >
-                <div className="flex flex-row items-start justify-between bg-gray-700 p-6 rounded-3xl w-full">
-                    <h1
-                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white"
-                    >
-                        My Portfolio
-                    </h1>
-                    <a href="https://hongyu.techtime.coffee" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/196595-200.png"
-                            alt="Icon"
-                            className="w-8 h-8 md:w-16 md:h-16 object-contain hover:filter hover:brightness-0 hover:invert transition duration-300 ease-in-out scale-125 hover:scale-150"
-                        />
-                    </a>
-                </div>
-
-                <div className="w-full flex justify-center">
-                    <img
-                        src="/Screenshot%202025-01-12%20at%204.13.31%E2%80%AFPM.png"
-                        alt="Second Image"
-                        className="w-auto max-w-full h-auto rounded-3xl"
-                    />
-                </div>
-            </div>
-
-            <div
-                className="content mt-5 relative flex flex-col bg-gray-700 w-full h-full rounded-3xl space-y-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six overflow-hidden"
-            >
-                <div className="flex flex-row items-start justify-between bg-gray-700 p-6 rounded-3xl w-full">
-                    <h1
-                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white"
-                    >
-                        XO Frenzy
-                    </h1>
-                    <a href="https://apps.apple.com/sg/app/xo-frenzy/id6738127154" target="_blank" rel="noopener noreferrer">
-                        <img
-                            src="/196595-200.png"
-                            alt="Icon"
-                            className="w-8 h-8 md:w-16 md:h-16 object-contain hover:filter hover:brightness-0 hover:invert transition duration-300 ease-in-out scale-125 hover:scale-150"
-                        />
-                    </a>
-                </div>
-
-                <div className="w-full flex justify-center">
-                    <img
-                        src="/Landscape%20Banner%20Ad%20-%20Frenzy.png"
-                        alt="Second Image"
-                        className="w-auto max-w-full h-auto rounded-3xl"
-                    />
-                </div>
-            </div>
-            <div
-                className="content mt-5 relative flex flex-col bg-gray-700 w-full h-full rounded-3xl space-y-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six overflow-hidden"
-            >
-                <div className="flex flex-row items-start justify-between bg-gray-700 p-6 rounded-3xl w-full">
-                    <h1
-                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white"
-                    >
-                        SpaceSync
-                    </h1>
-                    <a href="https://apple.co/3Py3KYG" target="_blank"
-                       rel="noopener noreferrer">
-                        <img
-                            src="/196595-200.png"
-                            alt="Icon"
-                            className="w-8 h-8 md:w-16 md:h-16 object-contain hover:filter hover:brightness-0 hover:invert transition duration-300 ease-in-out scale-125 hover:scale-150"
-                        />
-                    </a>
-                </div>
-
-                <div className="w-full flex justify-center">
-                    <img
-                        src="/Landscape%20Banner%20Ad%20-%201200x720.png"
-                        alt="Second Image"
-                        className="w-auto max-w-full h-auto rounded-3xl"
-                    />
-                </div>
+                className="content mt-5 relative flex flex-col lg:flex-row justify-center items-center  bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six">
+                {/*<h1 className="   text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white   py-4"*/}
+                {/*>Attendance Taker for KLC</h1>*/}
+                <h1>Project 1</h1>
             </div>
             <div
                 className="content mt-5  relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six">
-                <h1>TO BE CONTINUED</h1>
+                <h1>Project 2</h1>
+            </div>
+            <div
+                className="content mt-5  relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six">
+                <h1>Project 3</h1>
+            </div>
+            <div
+                className="content mt-5  relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six">
+                <h1>Project 4</h1>
             </div>
             {/*<div*/}
             {/*    className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-[600px]">*/}

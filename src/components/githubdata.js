@@ -41,7 +41,7 @@ export async function getGithubBuildData() {
         console.error("Error fetching commits:", error.message);
         return (
             <div>
-                <p>Error: {error.message}</p>
+                <p>Error: Failed to fetch commits.</p>
             </div>
         );
     }
