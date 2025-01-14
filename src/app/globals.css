@@ -19,3 +19,10 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+@font-face {
+  font-family: 'MyCustomFont';
+  src: url('../FontsFree-Net-LeagueSpartan-VariableFont_wght-1.ttf') format('truetype'),
+  url('../FontsFree-Net-LeagueSpartan-VariableFont_wght-1.ttf') format('truetype');
+  font-weight: 300; /* "light" is equivalent to a numeric value of 300 */
+  font-style: normal;
+}

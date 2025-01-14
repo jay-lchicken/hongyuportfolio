@@ -7,6 +7,7 @@ import SplitType from "split-type";
 gsap.registerPlugin(ScrollTrigger);
 import { useForm, ValidationError } from "@formspree/react";
 import { useState } from "react";
+
 import fetchBuildInfo from "@/components/githubdata";
 export default function Home() {
     const [githubData, setGithubData] = useState(null);
@@ -178,6 +179,29 @@ export default function Home() {
                 }
             });
         });
+        gsap.utils.toArray(".flipbox").forEach(function(card) {
+            gsap.set(card, {
+                transformStyle: "preserve-3d",
+                transformPerspective: 1000
+            });
+            const q = gsap.utils.selector(card);
+            const front = q(".cardFront");
+            const back = q(".cardBack");
+
+            gsap.set(back, { rotationY: -180 });
+
+            const tl = gsap.timeline({ paused: true })
+                .to(front, { duration: 1, rotationY: 180 })
+                .to(back, { duration: 1, rotationY: 0 }, 0)
+                .to(card, { z: 50 }, 0)
+                .to(card, { z: 0 }, 0.5);
+            card.addEventListener("mouseenter", function() {
+                tl.play();
+            });
+            card.addEventListener("mouseleave", function() {
+                tl.reverse();
+            });
+        });
         const interval = setInterval(() => {
             if (state.succeeded) {
                 window.location.href = "/succeed";
@@ -193,7 +217,7 @@ export default function Home() {
     return (
 
         <div
-            className="  grid grid-rows-[auto_1fr_auto] items-center justify-center align-middle justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20  bg-gray-800  "
+            className="  grid grid-rows-[auto_1fr_auto] items-center justify-center align-middle justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20  bg-gray-800  " style={{fontFamily: "MyCustomFont"}}
         >
 
             <div className="flex flex-col w-screen ">
@@ -278,7 +302,7 @@ export default function Home() {
                     <h1
                         className=" text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white  text-center py-4"
                     >
-                        Coding languages i know</h1>
+                        Languages in my stack</h1>
                     <img src="/arrow-down.gif.8d9aec7b8f92f2a50a1a64fce1733f3a.gif"/>
                 </div>
 
@@ -400,17 +424,58 @@ export default function Home() {
                     />
                 </div>
             </div>
+
             <div
                 className="content mt-5  relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six">
                 <h1>TO BE CONTINUED</h1>
             </div>
             {/*<div*/}
             {/*    className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-[600px]">*/}
+            <style jsx>{`
+                .flipbox {
+                    transform-style: preserve-3d;
+                    perspective: 1000px;
+                }
 
+                .cardFront,
+                .cardBack {
+                    backface-visibility: hidden;
+                    transform: rotateY(0deg); /* Default for front */
+                }
+
+                .cardBack {
+                    transform: rotateY(-180deg); /* Default for back */
+                }`}</style>
             {/*</div> /!*Do not remove, this adds space*!/*/}
-
+            <div className="hello relative flex flex-col lg:flex-row justify-center items-center gap-10 min-w-full">
+                <a href="/certificates"
+                   className="flipbox relative min-w-[80%] lg:min-w-[40%] h-64 flex-shrink-0">
+                    <div
+                        className="cardFront absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
+                        <h1 className="text-4xl lg:text-5xl font-bold">My Certificates</h1>
+                    </div>
+                    <div
+                        className="cardBack absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
+                        <h1 className="m-20 text-2xl lg:text-3xl">Showcasing all the key certificates I have earned over
+                            the years, highlighting my journey from a young age. Click on me to access</h1>
+                    </div>
+                </a>
+                <a href="https://example.com"
+                   className="flipbox relative min-w-[80%] lg:min-w-[40%] h-64 flex-shrink-0">
+                    <div
+                        className="cardFront absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
+                        <h1 className="text-4xl lg:text-5xl font-bold">My Certificates</h1>
+                    </div>
+                    <div
+                        className="cardBack absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
+                        <h1 className="m-20 text-2xl lg:text-3xl">Showcasing all the key certificates I have earned over
+                            the years, highlighting my journey from a young age. Click on me to access</h1>
+                    </div>
+                </a>
+            </div>
+            <h1>Hong Yu AI about my life will be added soon!</h1>
             <form onSubmit={handleSubmit}
-                  className="hello max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl mx-auto border-8 border-white rou shadow-md rounded-3xl p-6 w-full m-4">
+                  className=" max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl mx-auto border-8 border-white rou shadow-md rounded-3xl p-6 w-full m-4">
                 <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold text-center m-4">
                     Contact Me</h1>
                 <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-light text-center m-4">
