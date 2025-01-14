@@ -1,4 +1,6 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
 
 const geistSans = Geist({
