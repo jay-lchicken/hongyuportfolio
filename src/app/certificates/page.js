@@ -44,7 +44,7 @@ export default function Certificates() {
                 {/* PDF Viewer */}
                 <div className="pdf-viewer w-full flex justify-center items-center bg-white p-4 rounded-lg">
                     <Document
-                        file="/Certificate/AppleTeacherCertificate.pdf"
+                        file="/AppleTeacherCertificate.pdf"
                         onLoadSuccess={onDocumentLoadSuccess}
                     >
                         <Page pageNumber={pageNumber} />
