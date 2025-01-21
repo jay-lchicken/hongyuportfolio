@@ -3,54 +3,39 @@
 import React, { useEffect, useState } from "react";
 
 const LoadingBar = () => {
-    const [progress, setProgress] = useState(0);
+    const [progress, setProgress] = useState(1); // Start at 1
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setProgress((prev) => {
-                if (prev < 90) {
-                    return prev + 5; // Increment progress
+                if (prev < 100) {
+                    return prev + 1; // Increment progress by 1
                 }
+                clearInterval(interval); // Clear interval when progress reaches 100
+                setTimeout(() => setIsLoaded(true), 500); // Delay to show full bar
                 return prev;
             });
-        }, 100);
+        }, 1); // Slower interval for smoother counting
 
-        const handleLoad = () => {
-            clearInterval(interval);
-            setProgress(100); // Set progress to 100% once the website loads
-            setTimeout(() => {
-                setIsLoaded(true); // Mark as loaded to hide the bar and text
-            }, 500); // Small delay to show completion
-        };
-
-        if (document.readyState === "complete") {
-            handleLoad();
-        } else {
-            window.addEventListener("load", handleLoad);
-        }
-
-        return () => {
-            clearInterval(interval);
-            window.removeEventListener("load", handleLoad);
-        };
+        return () => clearInterval(interval); // Clean up interval
     }, []);
 
     return (
         !isLoaded && (
             <div className="loading-container">
                 <div className="loading-bar-wrapper">
-                    <div className="loading-bar" style={{ width: `${progress}%` }}></div>
+                    <div className="loading-bar " style={{ width: `${progress}%` }}></div>
                 </div>
-                <div className="loading-text">{progress}%</div>
+                <div className="loading-text text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-9xl">{progress}%</div>
                 <style jsx>{`
                     .loading-container {
                         position: fixed;
                         top: 0;
                         left: 0;
                         width: 100%;
-                        height: 100vh; /* Full viewport height */
-                        background-color: #ffffff; /* White background */
+                        height: 100vh;
+                        background-color: #0a0a0a; /* Black background */
                         z-index: 9999;
                         display: flex;
                         flex-direction: column;
@@ -63,18 +48,18 @@ const LoadingBar = () => {
                         left: 0;
                         width: 100%;
                         height: 5px;
-                        background-color: rgba(0, 0, 0, 0.1);
+                        background-color: rgba(255, 255, 255, 0.1); /* Light background for bar container */
                     }
                     .loading-bar {
                         height: 100%;
                         background-color: #4caf50; /* Green loading bar */
-                        transition: width 0.2s ease;
+                        transition: width 0.05s ease; /* Smooth transition */
                     }
                     .loading-text {
-                        font-size: 24px; /* Larger font size */
                         font-weight: bold;
-                        color: #000; /* Black text for contrast */
+                        color: white;
                         text-align: center;
+                        margin-top: 20px;
                     }
                 `}</style>
             </div>

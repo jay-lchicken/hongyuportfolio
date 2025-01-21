@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import LoadingBar from "../components/LoadingBar";
-
+import LoadingBar from "@/components/loadingBar";
 export default function LoadingWrapper({ children }) {
     const [isLoading, setIsLoading] = useState(true);
 
