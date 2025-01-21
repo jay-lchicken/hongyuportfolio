@@ -1,7 +1,9 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
+import LoadingBar from "../components/LoadingBar";
 
 import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
+import LoadingWrapper from "@/components/loadingWrapper";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,8 +31,11 @@ export default function RootLayout({ children }) {
       <body
         className={` ${inter.variable} antialiased`}
       >
-        {children}
-        <Analytics />
+
+        <LoadingWrapper>
+            {children}
+            <Analytics />
+        </LoadingWrapper>
       </body>
     </html>
   );

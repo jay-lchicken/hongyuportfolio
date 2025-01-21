@@ -54,22 +54,31 @@ export default function Home() {
         gsap.set(".section", { autoAlpha: 0, y: 50 });
 
         gsap.utils.toArray(".section").forEach((section) => {
+            // Set the initial state of the sections
+            gsap.set(section, {
+                scale: 0.8, // Initial smaller scale
+                autoAlpha: 0, // Hidden initially
+                y: 50, // Offset for the entrance effect
+            });
+
             ScrollTrigger.create({
                 trigger: section,
                 start: "top 80%",
                 onEnter: () => {
                     gsap.to(section, {
-                        autoAlpha: 1,
-                        y: 0,
-                        duration: 1,
+                        scale: 1, // Expand to full size
+                        autoAlpha: 1, // Make it visible
+                        y: 0, // Bring to its original position
+                        duration: 1, // Animation duration
                         ease: "power2.out",
                     });
                 },
                 onLeaveBack: () => {
                     gsap.to(section, {
-                        autoAlpha: 0,
-                        y: 50,
-                        duration: 1,
+                        scale: 0.8, // Shrink back to initial size
+                        autoAlpha: 0, // Hide it again
+                        y: 50, // Move it back to the offset
+                        duration: 1, // Animation duration
                         ease: "power2.out",
                     });
                 },
@@ -221,13 +230,13 @@ export default function Home() {
         >
 
             <div className="flex flex-col w-screen ">
-                <section className="skills w-screen h-screen flex items-center justify-center">
+                <section className=" skills w-screen h-screen flex items-center justify-center">
                     <h2
-                        className=" opacity-0 title text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                        className="section opacity-0 title text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
                     >Welcome to my</h2>
                 </section>
                 <section className=" skills w-screen h-screen flex items-center justify-center">
-                    <h2 className="opacity-0 title text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
+                    <h2 className="section opacity-0 title text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center py-4"
                     >Portfolio</h2>
                 </section>
 
@@ -283,6 +292,15 @@ export default function Home() {
                         many coding languages.
                     </h1>
                 </div>
+            </div>
+            <div
+                className="section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl ">
+                <div className="w-full max-w-4xl hover:scale-105 transition-transform">
+                    <h1 className="hi text-xl sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl font-semibold text-white text-center m-4">
+                        I'm the{" "}
+                        <span className="bg-text-gradient bg-clip-text text-transparent">founder of Hack@SST</span>, which is under the program by Hack Club.
+                    </h1>
+                    </div>
             </div>
             <style jsx>{`
                 .no-scrollbar {
