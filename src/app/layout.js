@@ -1,6 +1,4 @@
 import { Geist, Geist_Mono, Inter } from "next/font/google";
-import LoadingBar from "../components/LoadingBar";
-
 import { Analytics } from "@vercel/analytics/react"
 import "./globals.css";
 import LoadingWrapper from "@/components/loadingWrapper";
