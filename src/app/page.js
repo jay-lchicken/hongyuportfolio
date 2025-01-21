@@ -464,11 +464,11 @@ export default function Home() {
                    className="flipbox relative min-w-[80%] lg:min-w-[40%] h-64 flex-shrink-0">
                     <div
                         className="cardFront absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
-                        <h1 className="text-4xl lg:text-5xl font-bold">My Certificates</h1>
+                        <h1 className="text-4xl lg:text-5xl font-bold">My Experiences</h1>
                     </div>
                     <div
                         className="cardBack absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
-                        <h1 className="m-20 text-2xl lg:text-3xl">Showcasing all the key certificates I have earned over
+                        <h1 className="m-20 text-2xl lg:text-3xl">Showcasing all the key experiencess I have gained over
                             the years, highlighting my journey from a young age. Click on me to access</h1>
                     </div>
                 </a>

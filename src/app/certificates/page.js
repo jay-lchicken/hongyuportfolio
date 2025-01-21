@@ -33,45 +33,45 @@ export default function Certificates() {
                 />
                 <div className="text-4xl ml-4 font">My Certificates</div>
             </div>
-            <div
-                className="content mt-5 relative w-full min-w-full flex flex-col bg-gray-700 w-full min-w-full h-full rounded-3xl space-y-4 p-6 h-three md:h-six overflow-hidden"
-            >
-                <h1
-                    className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white"
-                >
-                    Apple Teacher Certificate
-                </h1>
-                {/* PDF Viewer */}
-                <div className="pdf-viewer w-full flex justify-center items-center bg-white p-4 rounded-lg">
-                    <Document
-                        file="/AppleTeacherCertificate.pdf"
-                        onLoadSuccess={onDocumentLoadSuccess}
-                    >
-                        <Page pageNumber={pageNumber} />
-                    </Document>
-                </div>
-                {/* Pagination Controls */}
-                <div className="text-white mt-4 flex justify-center items-center space-x-4">
-                    <button
-                        className="px-4 py-2 bg-gray-600 rounded hover:bg-gray-500"
-                        onClick={() => setPageNumber((prev) => Math.max(prev - 1, 1))}
-                        disabled={pageNumber <= 1}
-                    >
-                        Previous
-                    </button>
-                    <span>
-                        Page {pageNumber} of {numPages}
-                    </span>
-                    <button
-                        className="px-4 py-2 bg-gray-600 rounded hover:bg-gray-500"
-                        onClick={() =>
-                            setPageNumber((prev) => Math.min(prev + 1, numPages))
-                        }
-                        disabled={pageNumber >= numPages}
-                    >
-                        Next
-                    </button>
-                </div>
+            <div className="justify-between bg-gray-700 min-h-24 mt-16 flex flex-row justify-start items-center w-full max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-full rounded-3xl">
+                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold text-center m-4">Apple Teacher </h1>
+                <button className="rounded-xl w-40 h-10 bg-amber-200 items-center justify-center m-4">
+                    <a href="/AppleTeacherCertificate.pdf" className="text-black" >
+                        View Certificate
+                    </a>
+                </button>
+            </div>
+            <div className="justify-between bg-gray-700 min-h-24 mt-16 flex flex-row justify-start items-center w-full max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-full rounded-3xl">
+                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold text-center m-4">Apple Teacher Swift Playground </h1>
+                <button className="rounded-xl w-40 h-10 bg-amber-200 items-center justify-center m-4">
+                    <a href="/AppleTeacherSwiftPlaygroundsCertificate.pdf" className="text-black" >
+                        View Certificate
+                    </a>
+                </button>
+            </div>
+            <div className="justify-between bg-gray-700 min-h-24 mt-16 flex flex-row justify-start items-center w-full max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-full rounded-3xl">
+                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold text-center m-4">Build Portfolio With Google Sites </h1>
+                <button className="rounded-xl w-40 h-10 bg-amber-200 items-center justify-center m-4">
+                    <a href="/Certificate/Google%20Certificate/Build%20Portfolio%20with%20Google%20Sites.pdf" className="text-black" >
+                        View Certificate
+                    </a>
+                </button>
+            </div>
+            <div className="justify-between bg-gray-700 min-h-24 mt-16 flex flex-row justify-start items-center w-full max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-full rounded-3xl">
+                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold text-center m-4">Create a guessing game with google forms</h1>
+                <button className="rounded-xl w-40 h-10 bg-amber-200 items-center justify-center m-4">
+                    <a href="/Certificate/Google%20Certificate/Create%20a%20Guessing%20Game%20with%20Google%20Forms.pdf" className="text-black" >
+                        View Certificate
+                    </a>
+                </button>
+            </div>
+            <div className="justify-between bg-gray-700 min-h-24 mt-16 flex flex-row justify-start items-center w-full max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-full rounded-3xl">
+                <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold text-center m-4">Create a Animation in Google Slides</h1>
+                <button className="rounded-xl w-40 h-10 bg-amber-200 items-center justify-center m-4">
+                    <a href="/Certificate/Google%20Certificate/Create%20an%20Animation%20in%20Google%20Slides.pdf" className="text-black" >
+                        View Certificate
+                    </a>
+                </button>
             </div>
         </div>
     );
