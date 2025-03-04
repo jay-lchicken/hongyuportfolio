@@ -19,7 +19,8 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-pdf": "^9.2.1",
-    "split-type": "^0.3.4"
+    "split-type": "^0.3.4",
+    "spotify-web-api-node": "^5.0.2"
   },
   "devDependencies": {
     "postcss": "^8",

@@ -302,6 +302,41 @@ export default function Home() {
                     </h1>
                     </div>
             </div>
+            <div
+                className="section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl ">
+                <div className="w-full max-w-4xl hover:scale-105 transition-transform">
+                    <div className={"flex-row flex justify-center align-middle items-center"}>
+                        <button className="animated-button mr-28" onClick={() => window.open("https://leetcode.com/u/eCJXwpaBlY/", "_blank")}>
+                        <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                            ></path>
+                        </svg>
+                        <span className="text">LeetCode Profile</span>
+                        <span className="circle"></span>
+                        <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                            ></path>
+                        </svg>
+                    </button>
+                    <button className="animated-button" onClick={() => window.open("https://app.codecrafters.io/users/jay-lchicken", "_blank")}>
+                        <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                            ></path>
+                        </svg>
+                        <span className="text">Code Crafter Profile</span>
+                        <span className="circle"></span>
+                        <svg viewBox="0 0 24 24" className="arr-1" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z"
+                            ></path>
+                        </svg>
+                    </button>
+                    </div>
+                </div>
+            </div>
             <style jsx>{`
                 .no-scrollbar {
                     -ms-overflow-style: none; /* Internet Explorer 10+ */
