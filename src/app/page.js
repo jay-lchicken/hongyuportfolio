@@ -8,7 +8,6 @@ gsap.registerPlugin(ScrollTrigger);
 import { useForm, ValidationError } from "@formspree/react";
 import { useState } from "react";
 
-import fetchBuildInfo from "@/components/githubdata";
 export default function Home() {
     const [githubData, setGithubData] = useState(null);
 
@@ -30,198 +29,185 @@ export default function Home() {
     }
 
     useEffect(() => {
-        const fetchData = async () => {
-            const data = await getGithubBuildData();
-            setGithubData(data);
-        };
+    const fetchData = async () => {
+        const data = await getGithubBuildData();
+        setGithubData(data);
+    };
 
-        fetchData();
-        // GSAP Scroll Animation for Images
-        gsap.set(".item-img", { y: 100, autoAlpha: 0 });
+    fetchData();
 
-        ScrollTrigger.batch(".item-img", {
-            onEnter: (batch) =>
-                gsap.to(batch, {
-                    duration: 1,
+    gsap.set(".item-img", { y: 100, autoAlpha: 0 });
+
+    ScrollTrigger.batch(".item-img", {
+        onEnter: (batch) =>
+            gsap.to(batch, {
+                duration: 1,
+                autoAlpha: 1,
+                y: 0,
+                stagger: 0.1,
+            }),
+        start: "top center",
+    });
+
+    gsap.set(".section", { autoAlpha: 0, y: 50 });
+
+    gsap.utils.toArray(".section").forEach((section) => {
+        gsap.set(section, {
+            scale: 0.8,
+            autoAlpha: 0,
+            y: 50,
+        });
+
+        ScrollTrigger.create({
+            trigger: section,
+            start: "top 80%",
+            onEnter: () => {
+                gsap.to(section, {
+                    scale: 1,
                     autoAlpha: 1,
                     y: 0,
-                    stagger: 0.1,
-                }),
-            start: "top center",
+                    duration: 1,
+                    ease: "power2.out",
+                });
+            },
+            onLeaveBack: () => {
+                gsap.to(section, {
+                    scale: 0.8,
+                    autoAlpha: 0,
+                    y: 50,
+                    duration: 1,
+                    ease: "power2.out",
+                });
+            },
         });
+    });
 
-        // GSAP Scroll Animation for Sections
-        gsap.set(".section", { autoAlpha: 0, y: 50 });
-
-        gsap.utils.toArray(".section").forEach((section) => {
-            // Set the initial state of the sections
-            gsap.set(section, {
-                scale: 0.8, // Initial smaller scale
-                autoAlpha: 0, // Hidden initially
-                y: 50, // Offset for the entrance effect
-            });
-
-            ScrollTrigger.create({
-                trigger: section,
+    gsap.fromTo(
+        ".typewriter",
+        { width: "0ch" },
+        {
+            width: "100%",
+            duration: 1,
+            ease: "steps(40)",
+            delay: 0.5,
+            scrollTrigger: {
+                trigger: ".typewriter",
                 start: "top 80%",
-                onEnter: () => {
-                    gsap.to(section, {
-                        scale: 1, // Expand to full size
-                        autoAlpha: 1, // Make it visible
-                        y: 0, // Bring to its original position
-                        duration: 1, // Animation duration
-                        ease: "power2.out",
-                    });
-                },
-                onLeaveBack: () => {
-                    gsap.to(section, {
-                        scale: 0.8, // Shrink back to initial size
-                        autoAlpha: 0, // Hide it again
-                        y: 50, // Move it back to the offset
-                        duration: 1, // Animation duration
-                        ease: "power2.out",
-                    });
-                },
-            });
+                end: "top 20%",
+                scrub: true,
+            },
+        }
+    );
+
+    gsap.fromTo(
+        ".typewriter",
+        { borderRightColor: "rgba(255, 255, 255, 0.75)" },
+        {
+            borderRightColor: "rgba(255, 255, 255, 0)",
+            duration: 0.5,
+            repeat: -1,
+            ease: "power1.inOut",
+            scrollTrigger: {
+                trigger: ".typewriter",
+                start: "top 20%",
+                end: "top 100%",
+            },
+        }
+    );
+
+    let sections = gsap.utils.toArray(".panel");
+
+    gsap.to(sections, {
+        xPercent: -100 * (sections.length - 1),
+        ease: "none",
+        scrollTrigger: {
+            trigger: ".container",
+            pin: true,
+            scrub: 1,
+            snap: {
+                snapTo: 1 / (sections.length - 1),
+                duration: 0.01,
+            },
+            end: "+=3500",
+        },
+    });
+
+    const container = document.querySelector(".container");
+
+    gsap.timeline({
+        scrollTrigger: {
+            trigger: container,
+            start: "top 50%",
+            end: "bottom 20%",
+            toggleActions: "restart none none reverse",
+            scrub: true,
+        },
+    }).to(container, {
+        scale: Math.max(window.innerWidth / container.offsetWidth, window.innerHeight / container.offsetHeight),
+    });
+
+    const contents = gsap.utils.toArray(".content");
+
+    contents.forEach((el) => {
+        ScrollTrigger.create({
+            trigger: el,
+            start: "center center",
+            end: "top bottom",
+            pin: true,
+            pinSpacing: false,
+            endTrigger: ".hello",
         });
+    });
 
-        // GSAP Typewriter Animation
-        gsap.fromTo(
-            ".typewriter",
-            { width: "0ch" },
-            {
-                width: "100%",
-                duration: 1,
-                ease: "steps(40)",
-                delay: 0.5,
-                scrollTrigger: {
-                    trigger: ".typewriter", // The element that triggers the animation
-                    start: "top 80%", // When the element enters the viewport
-                    end: "top 20%", // When the element is scrolled past
-                    scrub: true, // Smooth scrubbing
-                },
-            }
-        );
+    let titles = gsap.utils.toArray(".title"),
+        offset = titles[1].offsetTop - titles[0].offsetTop;
 
-// Blinking cursor effect triggered by ScrollTrigger
-        gsap.fromTo(
-            ".typewriter",
-            { borderRightColor: "rgba(255, 255, 255, 0.75)" },
-            {
-                borderRightColor: "rgba(255, 255, 255, 0)",
-                duration: 0.5,
-                repeat: -1,
-                ease: "power1.inOut",
-                scrollTrigger: {
-                    trigger: ".typewriter", // Same trigger element
-                    start: "top 20%", // When the element enters the viewport
-                    end: "top 100%", // When the element is scrolled past
-                },
-            }
-        );
-
-        let sections = gsap.utils.toArray(".panel");
-
-        gsap.to(sections, {
-            xPercent: -100 * (sections.length - 1),
+    titles.forEach((element) => {
+        element.anim = gsap.to(element, {
+            opacity: 1,
             ease: "none",
             scrollTrigger: {
-                trigger: ".container",
-                pin: true,
-                scrub:1,
-                snap: {
-                    snapTo: 1 / (sections.length - 1),
-                    duration: 0.01,
-                },
-                // base vertical scrolling on how wide the container is so it feels more natural.
-                end: "+=3500",
-            }
+                trigger: element,
+                start: "center center+=" + offset / 2,
+                end: "center center-=" + offset / 2,
+                toggleActions: "play reverse play reverse",
+            },
         });
-        const container = document.querySelector(".container")
+    });
 
-        gsap.timeline({
-            scrollTrigger: {
-                trigger: container,
-                start: "top 50%",
-                end: "bottom 20%",
-                toggleActions: "restart none none reverse",
-                scrub: true,
-                // markers: true,
-            }
-        })
-            .to(container , {
-                scale: Math.max(window.innerWidth / container.offsetWidth, window.innerHeight / container.offsetHeight),
-            })
-
-
-
-        const contents = gsap.utils.toArray(".content");
-
-
-        contents.forEach((el, i) => {
-
-            ScrollTrigger.create({
-                trigger: el,
-                start: "center center", // Start pinning when the section's center reaches the viewport's center
-                end: `top bottom `, // Pin duration equals one viewport height
-                pin: true, // Enable pinning
-                pinSpacing: false, // Allow stacking
-                markers: false, // Debugging markers
-                endTrigger: ".hello",
-
-            });
+    gsap.utils.toArray(".flipbox").forEach((card) => {
+        gsap.set(card, {
+            transformStyle: "preserve-3d",
+            transformPerspective: 1000,
         });
-        let titles = gsap.utils.toArray(".title"),
-            offset = titles[1].offsetTop - titles[0].offsetTop;
 
-// loop through each "h2" element and create an animation/ScrollTrigger for each
-        titles.forEach((element, i) => {
-            element.anim = gsap.to(element, {
-                opacity: 1,
-                ease: "none",
-                scrollTrigger: {
-                    trigger: element,
-                    start: "center center+=" + offset / 2,
-                    end: "center center-=" + offset / 2,
-                    markers: false,
-                    toggleActions: "play reverse play reverse"
-                }
-            });
-        });
-        gsap.utils.toArray(".flipbox").forEach(function(card) {
-            gsap.set(card, {
-                transformStyle: "preserve-3d",
-                transformPerspective: 1000
-            });
-            const q = gsap.utils.selector(card);
-            const front = q(".cardFront");
-            const back = q(".cardBack");
+        const q = gsap.utils.selector(card);
+        const front = q(".cardFront");
+        const back = q(".cardBack");
 
-            gsap.set(back, { rotationY: -180 });
+        gsap.set(back, { rotationY: -180 });
 
-            const tl = gsap.timeline({ paused: true })
-                .to(front, { duration: 1, rotationY: 180 })
-                .to(back, { duration: 1, rotationY: 0 }, 0)
-                .to(card, { z: 50 }, 0)
-                .to(card, { z: 0 }, 0.5);
-            card.addEventListener("mouseenter", function() {
-                tl.play();
-            });
-            card.addEventListener("mouseleave", function() {
-                tl.reverse();
-            });
-        });
-        const interval = setInterval(() => {
-            if (state.succeeded) {
-                window.location.href = "/succeed";
-            }
-        }, 1000);
+        const tl = gsap.timeline({ paused: true })
+            .to(front, { duration: 1, rotationY: 180 })
+            .to(back, { duration: 1, rotationY: 0 }, 0)
+            .to(card, { z: 50 }, 0)
+            .to(card, { z: 0 }, 0.5);
 
-        return () => {
-            ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-            clearInterval(interval);
-        };
-    }, [state.succeeded]);
+        card.addEventListener("mouseenter", () => tl.play());
+        card.addEventListener("mouseleave", () => tl.reverse());
+    });
+
+    const interval = setInterval(() => {
+        if (state.succeeded) {
+            window.location.href = "/succeed";
+        }
+    }, 1000);
+
+    return () => {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        clearInterval(interval);
+    };
+}, [state.succeeded]);
 
     return (
 
