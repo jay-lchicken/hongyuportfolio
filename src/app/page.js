@@ -36,6 +36,8 @@ export default function Home() {
     const fetchData = async () => {
         const data = await getGithubBuildData();
         setGithubData(data);
+        ScrollTrigger.refresh(); // Ensure ScrollTrigger recalculates
+
     };
 
     fetchData();
