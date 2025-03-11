@@ -7,8 +7,9 @@ import SplitType from "split-type";
 gsap.registerPlugin(ScrollTrigger);
 import { useForm, ValidationError } from "@formspree/react";
 import { useState } from "react";
-
+import { useRouter} from "next/navigation";
 export default function Home() {
+    const router = useRouter();
     const [githubData, setGithubData] = useState(null);
 
     const [buildInfo, setBuildInfo] = useState(null);
@@ -24,6 +25,9 @@ export default function Home() {
             state.errors = state.errors.filter(error => error.field !== "data");
         }
     };
+    function navigateToPath(path){
+        router.push(path);
+    }
     if (state.succeeded) {
         window.location.href = "/succeed";
     }
@@ -188,8 +192,8 @@ export default function Home() {
         gsap.set(back, { rotationY: -180 });
 
         const tl = gsap.timeline({ paused: true })
-            .to(front, { duration: 1, rotationY: 180, ease: "power5.inOut" })
-            .to(back, { duration: 1, rotationY: 0, ease: "power5.inOut" }, 0)
+            .to(front, { duration: 1, rotationY: 180, ease: "power2.inOut" })
+            .to(back, { duration: 1, rotationY: 0, ease: "power2.inOut" }, 0)
             .to(card, { z: 50 }, 0)
             .to(card, { z: 0 }, 0.3);
 
@@ -487,8 +491,9 @@ export default function Home() {
                 }`}</style>
             {/*</div> /!*Do not remove, this adds space*!/*/}
             <div className="hello relative flex flex-col lg:flex-row justify-center items-center gap-10 min-w-full">
-                <a href="/certificates"
-                   className="flipbox relative min-w-[80%] lg:min-w-[40%] h-64 flex-shrink-0">
+                <a
+                   className="flipbox relative min-w-[80%] lg:min-w-[40%] h-64 flex-shrink-0 ">
+                    <button  onClick={() => {navigateToPath("certificates")}}>
                     <div
                         className="cardFront absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
                         <h1 className="text-4xl lg:text-5xl font-bold">My Certificates</h1>
@@ -498,9 +503,12 @@ export default function Home() {
                         <h1 className="m-20 text-2xl lg:text-3xl">Showcasing all the key certificates I have earned over
                             the years, highlighting my journey from a young age. Click on me to access</h1>
                     </div>
+                    </button>
                 </a>
-                <a href="https://example.com"
-                   className="flipbox relative min-w-[80%] lg:min-w-[40%] h-64 flex-shrink-0">
+                <a  className="flipbox relative min-w-[80%] lg:min-w-[40%] h-64 flex-shrink-0">
+
+                                        <button  onClick={() => {navigateToPath("certificates")}}>
+
                     <div
                         className="cardFront absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
                         <h1 className="text-4xl lg:text-5xl font-bold">My Experiences</h1>
@@ -510,6 +518,8 @@ export default function Home() {
                         <h1 className="m-20 text-2xl lg:text-3xl">Showcasing all the key experiencess I have gained over
                             the years, highlighting my journey from a young age. Click on me to access</h1>
                     </div>
+                                                                </button>
+
                 </a>
             </div>
             <h1>Hong Yu AI about my life will be added soon!</h1>
