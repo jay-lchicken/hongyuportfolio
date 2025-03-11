@@ -188,13 +188,13 @@ export default function Home() {
         gsap.set(back, { rotationY: -180 });
 
         const tl = gsap.timeline({ paused: true })
-            .to(front, { duration: 1, rotationY: 180 })
-            .to(back, { duration: 1, rotationY: 0 }, 0)
+            .to(front, { duration: 1, rotationY: 180, ease: "power5.inOut" })
+            .to(back, { duration: 1, rotationY: 0, ease: "power5.inOut" }, 0)
             .to(card, { z: 50 }, 0)
-            .to(card, { z: 0 }, 0.5);
+            .to(card, { z: 0 }, 0.3);
 
         card.addEventListener("mouseenter", () => tl.play());
-        card.addEventListener("mouseleave", () => tl.reverse());
+        card.addEventListener("mouseleave", () => tl.reverse(0));
     });
 
     const interval = setInterval(() => {
