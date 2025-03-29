@@ -256,10 +256,9 @@ export default function Home() {
                         alt="Hong Yu"
                         className="w-full rounded-3xl item-img"
                     />
-                    <h1
-                        className="absolute inset-x-0 bottom-0 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white  text-center bg-black bg-opacity-50 py-4 typewriter"
-                    >
-                        LAI HONG YU
+                    <h1 className="absolute inset-x-0 bottom-0 text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-bold text-white text-center bg-black bg-opacity-50 py-4 typewriter">
+                        LAI HONG YU <span
+                        className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold">Full-Stack Developer</span>
                     </h1>
                 </div>
             </div>
@@ -280,7 +279,7 @@ export default function Home() {
                 </div>
                 <div className="w-full max-w-4xl">
                     <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-thin text-center m-4 hover:scale-105 transition-transform">
-                        With over 6 years of experience in the technology field, I have learned
+                        With over 6 years of experience in the technology field, I have learnt
                         many coding languages.
                     </h1>
                 </div>
@@ -470,9 +469,84 @@ export default function Home() {
                 </div>
             </div>
 
+
             <div
-                className="content mt-5  relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six">
-                <h1>TO BE CONTINUED</h1>
+                className="content mt-5 relative flex flex-col bg-gray-700 w-full h-full rounded-3xl space-y-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six overflow-hidden"
+            >
+                <div className="flex flex-row items-start justify-between bg-gray-700 p-6 rounded-3xl w-full">
+                    <h1
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white"
+                    >
+                        RollWise
+                    </h1>
+                    <a href="https://attendance.techtime.coffee/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/171127-200.png"
+                            alt="Icon"
+                            className="w-8 h-8 md:w-16 md:h-16 object-contain hover:filter hover:brightness-0 hover:invert transition duration-300 ease-in-out scale-125 hover:scale-150"
+                        />
+                    </a>
+                </div>
+
+                <div className="w-full flex justify-center">
+                    <img
+                        src="/rollwise.png"
+                        alt="Second Image"
+                        className="w-auto max-w-full h-auto rounded-3xl"
+                    />
+                </div>
+            </div>
+            <div
+                className="content mt-5 relative flex flex-col bg-gray-700 w-full h-full rounded-3xl space-y-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six overflow-hidden"
+            >
+                <div className="flex flex-row items-start justify-between bg-gray-700 p-6 rounded-3xl w-full">
+                    <h1
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white"
+                    >
+                        SummaSense
+                    </h1>
+                    <a href="https://github.com/jay-lchicken/Summariser" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/171127-200.png"
+                            alt="Icon"
+                            className="w-8 h-8 md:w-16 md:h-16 object-contain hover:filter hover:brightness-0 hover:invert transition duration-300 ease-in-out scale-125 hover:scale-150"
+                        />
+                    </a>
+                </div>
+
+                <div className="w-full flex justify-center">
+                    <img
+                        src="/summasense.png"
+                        alt="Second Image"
+                        className="w-auto max-w-full h-auto rounded-3xl"
+                    />
+                </div>
+            </div>
+            <div
+                className="content mt-5 relative flex flex-col bg-gray-700 w-full h-full rounded-3xl space-y-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-three md:h-six overflow-hidden"
+            >
+                <div className="flex flex-row items-start justify-between bg-gray-700 p-6 rounded-3xl w-full">
+                    <h1
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold text-white"
+                    >
+                        Pirate Name Generator
+                    </h1>
+                    <a href="https://jay-lchicken.github.io/PirateNameGenerator/" target="_blank" rel="noopener noreferrer">
+                        <img
+                            src="/171127-200.png"
+                            alt="Icon"
+                            className="w-8 h-8 md:w-16 md:h-16 object-contain hover:filter hover:brightness-0 hover:invert transition duration-300 ease-in-out scale-125 hover:scale-150"
+                        />
+                    </a>
+                </div>
+
+                <div className="w-full flex justify-center">
+                    <img
+                        src="/piratename.png"
+                        alt="Second Image"
+                        className="w-auto max-w-full h-auto rounded-3xl"
+                    />
+                </div>
             </div>
             {/*<div*/}
             {/*    className="content mt-5 section relative flex flex-col lg:flex-row justify-center items-center bg-gray-700 w-full h-full rounded-3xl space-y-4 sm:space-y-0 sm:space-x-4 p-6 max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl h-[600px]">*/}
