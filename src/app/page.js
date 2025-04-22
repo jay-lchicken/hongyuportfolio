@@ -1,4 +1,5 @@
 "use client";
+import './globals.css'; // Adjust path if necessary
 import {getGithubBuildData} from "@/components/githubdata";
 import { useEffect } from "react";
 import { gsap } from "gsap";
@@ -8,6 +9,7 @@ gsap.registerPlugin(ScrollTrigger);
 import { useForm, ValidationError } from "@formspree/react";
 import { useState } from "react";
 import { useRouter} from "next/navigation";
+
 export default function Home() {
     const router = useRouter();
     const [githubData, setGithubData] = useState(null);
@@ -220,6 +222,7 @@ export default function Home() {
         <div
             className="  grid grid-rows-[auto_1fr_auto] items-center justify-center align-middle justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20  bg-gray-800  " style={{fontFamily: "MyCustomFont"}}
         >
+
 
             <div className="flex flex-col w-screen ">
                 <section className=" skills w-screen h-screen flex items-center justify-center">
