@@ -297,7 +297,7 @@ export default function Home() {
   <div className="w-full max-w-4xl hover:scale-105 transition-transform">
     <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-4">
       <button
-        className="animated-button w-[80%]"
+        className="animated-button "
         onClick={() => window.open("https://leetcode.com/u/eCJXwpaBlY/", "_blank")}
       >
         <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
@@ -310,7 +310,7 @@ export default function Home() {
         </svg>
       </button>
       <button
-        className="animated-button w-[80%]"
+        className="animated-button "
         onClick={() => window.open("https://app.codecrafters.io/users/jay-lchicken", "_blank")}
       >
         <svg viewBox="0 0 24 24" className="arr-2" xmlns="http://www.w3.org/2000/svg">
