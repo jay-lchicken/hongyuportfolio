@@ -1,7 +1,7 @@
 FROM node:18-alpine AS deps
 WORKDIR /app
 COPY package.json package-lock.json* ./
-COPY package*.json ./
+RUN /bin/bash -ol pipefail -c "npm i"
 RUN npm install
 FROM node:18-alpine AS builder
 WORKDIR /app
