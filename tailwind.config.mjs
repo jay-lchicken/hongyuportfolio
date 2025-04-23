@@ -21,31 +21,19 @@ export default {
         'gradient-3': "linear-gradient(135deg, #8BC6EC 0%, #9599E2 100%)",
         'gradient-4': "linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%)",
       },
-      scrollbar: {
-        none: {
-          "&::-webkit-scrollbar": {
-            display: "none",
-          },
-          "&": {
-            "-ms-overflow-style": "none", /* IE and Edge */
-            "scrollbar-width": "none", /* Firefox */
-          },
-        },
-      },
       maxWidth: {
-        'small': '22rem', // Example custom width
-        'medium': '34rem', // Medium custom width
-        'large': '42rem', // Large custom width
-        'large2': '60rem', // Large custom width
-        'screen-90': '90vw', // 90% of viewport width
-        'screen-80': '80vw', // 80% of viewport width
+        'small': '22rem',
+        'medium': '34rem',
+        'large': '42rem',
+        'large2': '60rem',
+        'screen-90': '90vw',
+        'screen-80': '80vw',
       },
       height: {
         'six': '700px',
         'three': '400px',
       },
-
     },
   },
   plugins: [],
-};
+}
