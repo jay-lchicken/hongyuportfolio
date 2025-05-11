@@ -566,38 +566,6 @@ export default function Home() {
                     transform: rotateY(-180deg); /* Default for back */
                 }`}</style>
             {/*</div> /!*Do not remove, this adds space*!/*/}
-            <div className="hello relative flex flex-col lg:flex-row justify-center items-center gap-10 min-w-full">
-                <a
-                   className="flipbox relative min-w-[80%] lg:min-w-[40%] h-64 flex-shrink-0 ">
-                    <button  onClick={() => {navigateToPath("certificates")}}>
-                    <div
-                        className="cardFront absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
-                        <h1 className="text-4xl lg:text-5xl font-bold">My Certificates</h1>
-                    </div>
-                    <div
-                        className="cardBack absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
-                        <h1 className="m-20 text-2xl lg:text-3xl">Showcasing all the key certificates I have earned over
-                            the years, highlighting my journey from a young age. Click on me to access</h1>
-                    </div>
-                    </button>
-                </a>
-                <a  className="flipbox relative min-w-[80%] lg:min-w-[40%] h-64 flex-shrink-0">
-
-                                        <button  onClick={() => {navigateToPath("certificates")}}>
-
-                    <div
-                        className="cardFront absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
-                        <h1 className="text-4xl lg:text-5xl font-bold">My Experiences</h1>
-                    </div>
-                    <div
-                        className="cardBack absolute w-full h-full bg-gray-700 text-white flex items-center justify-center backface-hidden rounded-3xl text-center text-wrap">
-                        <h1 className="m-20 text-2xl lg:text-3xl">Showcasing all the key experiencess I have gained over
-                            the years, highlighting my journey from a young age. Click on me to access</h1>
-                    </div>
-                                                                </button>
-
-                </a>
-            </div>
             <h1>Hong Yu AI about my life will be added soon!</h1>
             <form onSubmit={handleSubmit}
                   className=" max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl mx-auto border-8 border-white rou shadow-md rounded-3xl p-6 w-full m-4">
