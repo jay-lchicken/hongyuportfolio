@@ -163,6 +163,7 @@ export default function Home() {
             end: "top bottom",
             pin: true,
             pinSpacing: false,
+            markers: false,
             endTrigger: ".hello",
         });
     });
@@ -566,7 +567,7 @@ export default function Home() {
                     transform: rotateY(-180deg); /* Default for back */
                 }`}</style>
             {/*</div> /!*Do not remove, this adds space*!/*/}
-            <h1>Hong Yu AI about my life will be added soon!</h1>
+            <h1 className={"hello"}>Hong Yu AI about my life will be added soon!</h1>
             <form onSubmit={handleSubmit}
                   className=" max-w-small sm:max-w-medium md:max-w-large lg:max-w-large2 xl:max-w-screen-xl mx-auto border-8 border-white rou shadow-md rounded-3xl p-6 w-full m-4">
                 <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl xl:text-4xl text-white font-bold text-center m-4">
